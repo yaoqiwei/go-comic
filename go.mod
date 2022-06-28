@@ -4,7 +4,6 @@ go 1.14
 
 require (
 	github.com/FZambia/sentinel v1.1.0
-	github.com/elastic/go-elasticsearch/v7 v7.11.0
 	github.com/fatih/color v1.13.0
 	github.com/gin-contrib/cors v1.3.1
 	github.com/gin-contrib/pprof v1.3.0
@@ -15,7 +14,6 @@ require (
 	github.com/go-sql-driver/mysql v1.6.0
 	github.com/gomodule/redigo v1.8.4
 	github.com/google/uuid v1.2.0
-	github.com/jinzhu/now v1.1.5 // indirect
 	github.com/joho/godotenv v1.4.0
 	github.com/mailru/easyjson v0.7.7 // indirect
 	github.com/mattn/go-colorable v0.1.12 // indirect
@@ -36,8 +34,8 @@ require (
 	golang.org/x/net v0.0.0-20220615171555-694bf12d69de // indirect
 	golang.org/x/sys v0.0.0-20220622161953-175b2fd9d664 // indirect
 	golang.org/x/tools v0.1.11 // indirect
-	gorm.io/driver/mysql v1.3.4 // indirect
+	gorm.io/driver/mysql v1.3.4
 	gorm.io/driver/sqlite v1.3.4 // indirect
-	gorm.io/gorm v1.23.6 // indirect
-	gorm.io/sharding v0.5.1 // indirect
+	gorm.io/gorm v1.23.6
+	gorm.io/sharding v0.5.1
 )
