@@ -27,7 +27,7 @@ func InitGormPool() error {
 		}
 		gormDB.Use(sharding.Register(sharding.Config{
 			ShardingKey:         "user_id",
-			NumberOfShards:      4,
+			NumberOfShards:      uint(conf.Mysql.Split),
 			PrimaryKeyGenerator: sharding.PKSnowflake,
 		}, "cmf_order"))
 		sqlDB, _ := gormDB.DB()
