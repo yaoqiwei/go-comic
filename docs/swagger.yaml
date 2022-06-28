@@ -1,0 +1,7525 @@
+definitions:
+  actor.Actor:
+    properties:
+      breast:
+        type: number
+      collectionCount:
+        type: integer
+      cup:
+        type: string
+      description:
+        type: string
+      headIco:
+        type: string
+      height:
+        type: integer
+      hip:
+        type: number
+      id:
+        type: integer
+      likeCount:
+        type: integer
+      name:
+        type: string
+      playCount:
+        type: integer
+      videoCount:
+        type: integer
+      videos:
+        items:
+          $ref: '#/definitions/video.VideoSimple'
+        type: array
+      waist:
+        type: number
+    type: object
+  album.Album:
+    properties:
+      coverImageX:
+        type: string
+      coverImageY:
+        type: string
+      description:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      videoCount:
+        type: integer
+      videos:
+        items:
+          $ref: '#/definitions/video.VideoSimple'
+        type: array
+    type: object
+  base.ChargeRule:
+    properties:
+      buyDiscount:
+        description: 购片折扣，100不打折，0免费
+        type: integer
+      cdn:
+        description: CDN权限，1是0否
+        type: boolean
+      coin:
+        type: integer
+      give:
+        description: 赠送数
+        type: integer
+      id:
+        type: integer
+      level:
+        description: 标注等级
+        type: integer
+      money:
+        description: 当前价格
+        type: number
+      name:
+        type: string
+      newsVip:
+        description: 赠送动态会员
+        type: boolean
+      per:
+        description: 折扣
+        type: integer
+      rawPrice:
+        description: 原价
+        type: number
+      type:
+        description: 类型，1钻石2VIP3LIVEVIP
+        type: integer
+      unlimitedDownload:
+        description: 无限下载，1是0否
+        type: boolean
+      videoReply:
+        description: 视频评论权限
+        type: boolean
+      vip:
+        description: vip天数
+        type: integer
+    type: object
+  body.AchivementParam:
+    properties:
+      endTime:
+        description: 结束时间
+        type: string
+      isChild:
+        description: 是否子代理
+        type: integer
+      length:
+        description: 每页数量
+        example: 1
+        type: integer
+      offset:
+        description: 起始位置
+        example: 1
+        type: integer
+      page:
+        description: 页数
+        example: 1
+        type: integer
+      startTime:
+        description: 开始时间
+        type: string
+      type:
+        description: 类型
+        type: integer
+    type: object
+  body.ActivityGetList:
+    type: object
+  body.ActorIdPageParam:
+    properties:
+      actorId:
+        type: integer
+      length:
+        description: 每页数量
+        example: 1
+        type: integer
+      offset:
+        description: 起始位置
+        example: 1
+        type: integer
+      page:
+        description: 页数
+        example: 1
+        type: integer
+    type: object
+  body.ActorIdParam:
+    properties:
+      actorId:
+        type: integer
+    type: object
+  body.ActorListParam:
+    properties:
+      length:
+        description: 每页数量
+        example: 1
+        type: integer
+      offset:
+        description: 起始位置
+        example: 1
+        type: integer
+      page:
+        description: 页数
+        example: 1
+        type: integer
+      type:
+        description: 排序规则 1-点赞数倒序 2-视频数倒序
+        type: integer
+    type: object
+  body.ActorRecListParam:
+    properties:
+      length:
+        description: 每页数量
+        example: 1
+        type: integer
+      offset:
+        description: 起始位置
+        example: 1
+        type: integer
+      page:
+        description: 页数
+        example: 1
+        type: integer
+      videoLength:
+        type: integer
+    type: object
+  body.AddNewsParam:
+    properties:
+      address:
+        description: 详细地理位置
+        type: string
+      aspect:
+        description: 长宽，以-分割
+        type: string
+      city:
+        description: 城市ID
+        type: integer
+      cityName:
+        description: 城市
+        type: string
+      content:
+        description: 内容
+        type: string
+      cost:
+        description: 隐藏内容花费，0为用户登录后方可查看隐藏内容
+        type: integer
+      countryName:
+        description: 国家
+        type: string
+      expertise:
+        description: 专业技能
+        type: string
+      hideContent:
+        description: 隐藏内容
+        type: string
+      key1st:
+        type: string
+      key2nd:
+        type: string
+      key3rd:
+        type: string
+      key4th:
+        type: string
+      key5th:
+        type: string
+      key6th:
+        type: string
+      lat:
+        description: 地区中心纬度
+        type: string
+      lon:
+        description: 地区中心经度
+        type: string
+      newsId:
+        description: 类型ID
+        type: integer
+      regionName:
+        description: 行政区
+        type: string
+      salary:
+        description: 期望薪资
+        type: string
+      tagIds:
+        description: 标签ID的数组
+        items:
+          type: integer
+        type: array
+      title:
+        description: 标题
+        type: string
+      touid:
+        description: 类型ID
+        type: integer
+      type:
+        description: 0图片1媒体
+        type: integer
+      typeId:
+        description: 类型ID
+        type: integer
+      uids:
+        description: '@用户id集合'
+        items:
+          type: integer
+        type: array
+      url:
+        description: url为标识id用半角逗号隔开，自动判断媒体还是普通动态类型
+        type: string
+    type: object
+  body.AddVideoCollectionParam:
+    properties:
+      touid:
+        description: 被点赞用户id
+        type: integer
+      videoId:
+        description: 视频ID
+        type: integer
+    required:
+    - videoId
+    type: object
+  body.AdsTypeParam:
+    properties:
+      type:
+        description: 1pc-home
+        type: integer
+    type: object
+  body.AlbumIdPageParam:
+    properties:
+      albumId:
+        type: integer
+      length:
+        description: 每页数量
+        example: 1
+        type: integer
+      offset:
+        description: 起始位置
+        example: 1
+        type: integer
+      page:
+        description: 页数
+        example: 1
+        type: integer
+    type: object
+  body.AlbumIdParam:
+    properties:
+      albumId:
+        type: integer
+    type: object
+  body.AlbumRecListParam:
+    properties:
+      length:
+        description: 每页数量
+        example: 1
+        type: integer
+      offset:
+        description: 起始位置
+        example: 1
+        type: integer
+      page:
+        description: 页数
+        example: 1
+        type: integer
+      videoLength:
+        type: integer
+    type: object
+  body.AnnoParam:
+    properties:
+      tid:
+        description: 类型ID
+        type: integer
+    type: object
+  body.BindIpParam:
+    properties:
+      agentId:
+        type: integer
+    type: object
+  body.BindParam:
+    properties:
+      user_login:
+        description: 手机/邮箱
+        type: string
+      user_pass:
+        description: 首次绑定需要填写密码
+        type: string
+    type: object
+  body.BuyGuardParam:
+    properties:
+      guardid:
+        type: integer
+      liveuid:
+        type: integer
+    type: object
+  body.BuyThresholdParam:
+    properties:
+      coin:
+        description: 花费金币
+        type: integer
+      uid:
+        description: 用户ID
+        type: integer
+    type: object
+  body.CardBuyParam:
+    properties:
+      goodsId:
+        description: 商品ID
+        type: integer
+      nums:
+        description: 卡密数量
+        type: integer
+    required:
+    - goodsId
+    type: object
+  body.CardExchangeParam:
+    properties:
+      cardNo:
+        description: 卡密序列号
+        type: string
+    required:
+    - cardNo
+    type: object
+  body.ChatHistoryParams:
+    properties:
+      length:
+        description: 每页数量
+        example: 1
+        type: integer
+      offset:
+        description: 起始位置
+        example: 1
+        type: integer
+      page:
+        description: 页数
+        example: 1
+        type: integer
+      uid:
+        description: 用户ID
+        type: integer
+    required:
+    - uid
+    type: object
+  body.ClearHistoryParams:
+    properties:
+      uid:
+        description: 用户ID
+        type: integer
+    required:
+    - uid
+    type: object
+  body.ClearUserListParams:
+    properties:
+      uid:
+        description: 用户ID
+        type: integer
+    required:
+    - uid
+    type: object
+  body.CommentIdParam:
+    properties:
+      commentId:
+        description: 评论id
+        type: integer
+    type: object
+  body.CommentLikeParam:
+    properties:
+      commentId:
+        description: 评论id
+        type: integer
+      newsId:
+        description: 动态ID
+        type: integer
+      touid:
+        description: 回复的目标用户ID, 0表示没有
+        type: integer
+      uid:
+        description: 评论用户ID
+        type: integer
+      videoId:
+        description: 视频ID
+        type: integer
+    type: object
+  body.CommentReplyParam:
+    properties:
+      comment:
+        description: 评论内容
+        type: string
+      newsId:
+        description: 动态ID
+        type: integer
+      replyId:
+        description: 评论ID
+        type: integer
+      touid:
+        description: 回复目标用户ID
+        type: integer
+      videoId:
+        description: 视频ID
+        type: integer
+    required:
+    - comment
+    type: object
+  body.CreateRoomParam:
+    properties:
+      anyway:
+        description: 直播类型 1 PC, 0 app
+        type: integer
+      city:
+        description: 城市
+        type: string
+      deviceinfo:
+        description: 设备信息
+        type: string
+      isshop:
+        description: 是否开启购物车
+        type: integer
+      lat:
+        description: 纬度值
+        type: number
+      liveclassid:
+        description: 直播分类ID
+        type: integer
+      lng:
+        description: 经度值
+        type: number
+      province:
+        description: 省份
+        type: string
+      thumb:
+        description: 封面
+        type: string
+      title:
+        description: 直播标题
+        type: string
+      type:
+        description: 直播类型，0是一般直播，1是私密直播，2是收费直播，3是计时直播
+        type: integer
+      type_val:
+        description: 类型值
+        type: string
+    type: object
+  body.CrowdDrawParams:
+    properties:
+      coin:
+        description: 抽奖金额
+        type: integer
+      fid:
+        description: 抽奖ID
+        type: integer
+    type: object
+  body.CrowdGetParams:
+    properties:
+      liveuid:
+        description: 主播ID
+        type: integer
+    type: object
+  body.CrowdLaunchParams:
+    properties:
+      count:
+        description: 奖品份数
+        type: integer
+      prize:
+        description: 奖品
+        type: string
+      total:
+        description: 总数量
+        type: integer
+    type: object
+  body.CrowdLiveLogParams:
+    properties:
+      length:
+        description: 每页数量
+        example: 1
+        type: integer
+      liveuid:
+        description: 主播ID
+        type: integer
+      offset:
+        description: 起始位置
+        example: 1
+        type: integer
+      page:
+        description: 页数
+        example: 1
+        type: integer
+    type: object
+  body.CrowdResultParams:
+    properties:
+      fid:
+        description: 抽奖ID
+        type: integer
+    type: object
+  body.DenounceParam:
+    properties:
+      content:
+        type: string
+      newsId:
+        type: integer
+      type:
+        description: 1虚假资源，2货不对板，3服务敷衍，4欺诈收费，5标题/封面党，6封面反感
+        type: integer
+    type: object
+  body.EmailParam:
+    properties:
+      code:
+        type: string
+      email:
+        type: string
+    required:
+    - code
+    type: object
+  body.EndPkParam:
+    properties:
+      addtime:
+        description: 时间
+        type: integer
+      sign:
+        description: 签名
+        type: string
+      timestamp:
+        description: 时间戳
+        type: integer
+      type:
+        description: 类型
+        type: integer
+      uid:
+        description: 用户ID
+        type: integer
+    required:
+    - addtime
+    - sign
+    - timestamp
+    - uid
+    type: object
+  body.FeedbackParam:
+    properties:
+      content:
+        description: 内容
+        type: string
+      model:
+        description: 设备
+        type: string
+      thumb:
+        description: 图片
+        type: string
+      title:
+        description: 标题
+        type: string
+      version:
+        description: 系统版本号
+        type: string
+    type: object
+  body.GatherAddParam:
+    properties:
+      discount:
+        description: 合集折扣 100：不打折，0：免费
+        type: integer
+      discountExpie:
+        description: 折扣过期时间
+        type: string
+      gatherStatus:
+        description: 合集状态 0：删除，1：上架中，2：隐藏
+        type: integer
+      gatherType:
+        description: 合集类型 1：视频
+        type: integer
+      isOperate:
+        description: 运营设置
+        type: integer
+      name:
+        description: 名称
+        type: string
+      sortNo:
+        description: 排序
+        type: integer
+      videoIds:
+        description: 视频ID列表
+        items:
+          type: integer
+        type: array
+    required:
+    - gatherType
+    - name
+    - videoIds
+    type: object
+  body.GatherBuyParam:
+    properties:
+      gatherId:
+        description: 合集ID
+        type: integer
+      price:
+        description: 合集价格
+        type: integer
+    required:
+    - gatherId
+    - price
+    type: object
+  body.GatherDetailParam:
+    properties:
+      gatherId:
+        description: 合集ID
+        type: integer
+    required:
+    - gatherId
+    type: object
+  body.GatherPreBuyParam:
+    properties:
+      gatherId:
+        description: 合集ID
+        type: integer
+    required:
+    - gatherId
+    type: object
+  body.GatherSearchParam:
+    properties:
+      gatherType:
+        description: 合集类型 1：视频
+        type: integer
+      isCollect:
+        description: 是否收藏列表 0：否，1：是
+        type: integer
+      length:
+        description: 每页数量
+        example: 1
+        type: integer
+      name:
+        description: 名称
+        type: string
+      offset:
+        description: 起始位置
+        example: 1
+        type: integer
+      page:
+        description: 页数
+        example: 1
+        type: integer
+      userId:
+        description: 合集归属用户ID
+        type: integer
+      videoId:
+        description: 视频ID
+        type: integer
+    required:
+    - gatherType
+    type: object
+  body.GetAlbumListParam:
+    properties:
+      length:
+        description: 每页数量
+        example: 1
+        type: integer
+      offset:
+        description: 起始位置
+        example: 1
+        type: integer
+      page:
+        description: 页数
+        example: 1
+        type: integer
+      type:
+        description: 0精选1频道, 默认0
+        type: integer
+    type: object
+  body.GetBalanceParam:
+    properties:
+      type:
+        description: 设备类型，0android，1IOS
+        type: integer
+      version_ios:
+        description: IOS版本号
+        type: string
+    type: object
+  body.GetCityNewsParam:
+    properties:
+      cityCode:
+        description: 城市ID
+        type: integer
+      cityName:
+        description: 城市
+        type: string
+      countryName:
+        description: 国家
+        type: string
+      lat:
+        description: 纬度
+        type: string
+      length:
+        description: 每页数量
+        example: 1
+        type: integer
+      lon:
+        description: 经度
+        type: string
+      offset:
+        description: 起始位置
+        example: 1
+        type: integer
+      page:
+        description: 页数
+        example: 1
+        type: integer
+      regionName:
+        description: 行政区
+        type: string
+    required:
+    - cityCode
+    - lat
+    - lon
+    type: object
+  body.GetFollowsListParam:
+    properties:
+      length:
+        description: 每页数量
+        example: 1
+        type: integer
+      live:
+        description: 是否显示直播信息
+        type: integer
+      offset:
+        description: 起始位置
+        example: 1
+        type: integer
+      page:
+        description: 页数
+        example: 1
+        type: integer
+    type: object
+  body.GetFollowsNewsParam:
+    properties:
+      length:
+        description: 每页数量
+        example: 1
+        type: integer
+      offset:
+        description: 起始位置
+        example: 1
+        type: integer
+      page:
+        description: 页数
+        example: 1
+        type: integer
+    type: object
+  body.GetNewsParam:
+    properties:
+      city:
+        description: 城市ID
+        type: integer
+      key:
+        description: 查询内容
+        type: string
+      length:
+        description: 每页数量
+        example: 1
+        type: integer
+      offset:
+        description: 起始位置
+        example: 1
+        type: integer
+      orderType:
+        description: 排序规则，0时间1热度2收藏
+        type: integer
+      page:
+        description: 页数
+        example: 1
+        type: integer
+      type:
+        description: '"0":图片,"1":媒体'
+        type: string
+      typeId:
+        description: 类型ID
+        type: integer
+    type: object
+  body.GetNewsUserLike:
+    properties:
+      length:
+        description: 每页数量
+        example: 1
+        type: integer
+      newsId:
+        description: 动态ID
+        type: integer
+      offset:
+        description: 起始位置
+        example: 1
+        type: integer
+      page:
+        description: 页数
+        example: 1
+        type: integer
+    required:
+    - newsId
+    type: object
+  body.GetQueryNewsParam:
+    properties:
+      keyword:
+        type: string
+      length:
+        description: 每页数量
+        example: 1
+        type: integer
+      offset:
+        description: 起始位置
+        example: 1
+        type: integer
+      page:
+        description: 页数
+        example: 1
+        type: integer
+    type: object
+  body.GetReplyParam:
+    properties:
+      length:
+        description: 每页数量
+        example: 1
+        type: integer
+      newsId:
+        type: integer
+      offset:
+        description: 起始位置
+        example: 1
+        type: integer
+      page:
+        description: 页数
+        example: 1
+        type: integer
+    type: object
+  body.GetThresholdParam:
+    properties:
+      uid:
+        description: 用户ID
+        type: integer
+    type: object
+  body.IdParam:
+    properties:
+      id:
+        type: integer
+    required:
+    - id
+    type: object
+  body.LiveIdParam:
+    properties:
+      liveuid:
+        description: 直播间ID
+        type: integer
+    required:
+    - liveuid
+    type: object
+  body.LiveSearchParam:
+    properties:
+      key:
+        description: 直播搜索内容
+        type: string
+      length:
+        description: 每页数量
+        example: 1
+        type: integer
+      liveclassid:
+        description: 直播类型ID
+        example: 0
+        type: integer
+      offset:
+        description: 起始位置
+        example: 1
+        type: integer
+      page:
+        description: 页数
+        example: 1
+        type: integer
+    type: object
+  body.MicChangeLiveParam:
+    properties:
+      pkuid:
+        description: PK对象用户ID
+        type: integer
+      sign:
+        description: 签名
+        type: string
+      timestamp:
+        description: 时间戳
+        type: integer
+      type:
+        description: 类型
+        type: integer
+      uid:
+        description: 用户ID
+        type: integer
+    required:
+    - pkuid
+    - sign
+    - timestamp
+    - uid
+    type: object
+  body.MobileParam:
+    properties:
+      code:
+        type: string
+      mobile:
+        type: string
+    required:
+    - code
+    type: object
+  body.NewsCommentParam:
+    properties:
+      length:
+        description: 每页数量
+        example: 1
+        type: integer
+      newsId:
+        description: 动态ID
+        type: integer
+      offset:
+        description: 起始位置
+        example: 1
+        type: integer
+      page:
+        description: 页数
+        example: 1
+        type: integer
+      sortType:
+        description: 排序类型 1：按照添加时间倒序 2：按照热度
+        type: integer
+    required:
+    - newsId
+    type: object
+  body.NewsIdParam:
+    properties:
+      newsId:
+        type: integer
+    type: object
+  body.NewsLikeParam:
+    properties:
+      newsId:
+        type: integer
+      touid:
+        type: integer
+    type: object
+  body.NotifyChargeParam:
+    properties:
+      nonceStr:
+        description: 随机字符串
+        type: string
+      orderId:
+        description: 订单号
+        type: string
+      sign:
+        description: 签名
+        type: string
+    type: object
+  body.OrderGetList:
+    properties:
+      endTime:
+        description: '结束日期, 格式: YYYY-MM-DD HH:ii:ss'
+        type: string
+      length:
+        description: 每页数量
+        example: 1
+        type: integer
+      offset:
+        description: 起始位置
+        example: 1
+        type: integer
+      page:
+        description: 页数
+        example: 1
+        type: integer
+      paymentId:
+        description: 通道ID
+        type: integer
+      search:
+        description: 搜索内容
+        type: string
+      startTime:
+        description: '开始日期, 格式: YYYY-MM-DD HH:ii:ss'
+        type: string
+      status:
+        description: 订单状态
+        type: integer
+    type: object
+  body.OrderText:
+    properties:
+      column:
+        description: 支持的排序字段：addTimeStamp,hot,seeCount,collectionCount,likeCount,point,length
+        type: string
+      dir:
+        description: 支持的排序方式asc,desc
+        type: string
+    type: object
+  body.PageTrait:
+    properties:
+      length:
+        description: 每页数量
+        example: 1
+        type: integer
+      offset:
+        description: 起始位置
+        example: 1
+        type: integer
+      page:
+        description: 页数
+        example: 1
+        type: integer
+    type: object
+  body.PkUidsParam:
+    properties:
+      pkuid:
+        description: PK对象用户ID
+        type: integer
+      sign:
+        description: 签名
+        type: string
+      timestamp:
+        description: 时间戳
+        type: integer
+      uid:
+        description: 用户ID
+        type: integer
+    required:
+    - pkuid
+    - sign
+    - timestamp
+    - uid
+    type: object
+  body.PrepareChargeParam:
+    properties:
+      channel:
+        description: 渠道 0全渠道(默认) 1 PC 2 安卓 3 苹果
+        type: integer
+      id:
+        description: 商品ID
+        type: integer
+      ismobile:
+        description: app,h5=1，pc=0或不带该参数
+        type: integer
+      payType:
+        description: 支付方式1支付宝2微信
+        type: integer
+      uid:
+        description: 如果要帮其他人充值请填此值，否则不传
+        type: integer
+    type: object
+  body.ReadParams:
+    properties:
+      uid:
+        description: 用户ID
+        type: integer
+    required:
+    - uid
+    type: object
+  body.ReadedNoticeParam:
+    properties:
+      noticeId:
+        type: integer
+    type: object
+  body.RemoveWithdrawalsRecordParam:
+    properties:
+      drowId:
+        description: 提现记录ID
+        type: integer
+    type: object
+  body.ReplyIdListParam:
+    properties:
+      length:
+        description: 每页数量
+        example: 1
+        type: integer
+      offset:
+        description: 起始位置
+        example: 1
+        type: integer
+      page:
+        description: 页数
+        example: 1
+        type: integer
+      replyId:
+        description: 评论ID
+        type: integer
+    required:
+    - replyId
+    type: object
+  body.ReplyParam:
+    properties:
+      content:
+        type: string
+      newsId:
+        type: integer
+    type: object
+  body.RobRedParam:
+    properties:
+      redid:
+        description: 红包ID
+        type: integer
+    required:
+    - redid
+    type: object
+  body.SendBarrageParam:
+    properties:
+      content:
+        description: 内容
+        type: string
+      liveuid:
+        description: 直播间ID
+        type: integer
+    required:
+    - liveuid
+    type: object
+  body.SendGiftParam:
+    properties:
+      giftcount:
+        description: 礼物数量
+        type: integer
+      giftid:
+        description: 礼物ID
+        type: integer
+      ispack:
+        description: 是否背包
+        type: integer
+      liveuid:
+        description: 直播间ID
+        type: integer
+    required:
+    - liveuid
+    type: object
+  body.SendParams:
+    properties:
+      msg:
+        description: 消息内容/图片KEY
+        type: string
+      type:
+        description: 类型0文字1图片
+        type: integer
+      uid:
+        description: 用户ID
+        type: integer
+    required:
+    - msg
+    - uid
+    type: object
+  body.SendRedParam:
+    properties:
+      coin:
+        description: 钻石
+        type: integer
+      des:
+        description: 描述
+        type: string
+      liveuid:
+        description: 直播间ID
+        type: integer
+      nums:
+        description: 数量
+        type: integer
+      type:
+        description: 红包类型，0普通，1手气
+        type: integer
+      type_grant:
+        description: 发放类型，0立即 1延迟
+        type: integer
+    required:
+    - liveuid
+    type: object
+  body.SetAuthParam:
+    properties:
+      backView:
+        description: 反面
+        type: string
+      cerNo:
+        description: 身份证号
+        type: string
+      frontView:
+        description: 正面
+        type: string
+      handsetView:
+        description: 手持
+        type: string
+      mobile:
+        type: string
+      realName:
+        type: string
+    required:
+    - backView
+    - cerNo
+    - frontView
+    - handsetView
+    - mobile
+    - realName
+    type: object
+  body.SetMicParam:
+    properties:
+      ismic:
+        description: 连麦开关，0关1开
+        type: integer
+    type: object
+  body.SetShutParam:
+    properties:
+      liveuid:
+        description: 直播间ID
+        type: integer
+      touid:
+        description: 对象用户ID
+        type: integer
+      type:
+        description: 0永久禁言1本场
+        type: integer
+    required:
+    - liveuid
+    - touid
+    type: object
+  body.SetThresholdParam:
+    properties:
+      threshold:
+        description: 阈值，默认3888
+        type: integer
+    required:
+    - threshold
+    type: object
+  body.StatusParam:
+    properties:
+      status:
+        description: 状态
+        type: integer
+    type: object
+  body.StreamParam:
+    properties:
+      stream:
+        description: 直播间流
+        type: string
+    required:
+    - stream
+    type: object
+  body.SuperStopRoomParam:
+    properties:
+      liveuid:
+        description: 直播间ID
+        type: integer
+      type:
+        description: 关播类型 0表示关闭当前直播 1表示禁播，2表示封禁账号
+        type: integer
+    required:
+    - liveuid
+    type: object
+  body.SystemStopRoomParam:
+    properties:
+      gather:
+        description: 是否采集1是0否
+        type: integer
+      liveuid:
+        description: 直播间ID
+        type: integer
+      sign:
+        description: 签名
+        type: string
+      timestamp:
+        description: 时间戳
+        type: integer
+      type:
+        description: 关播类型 0表示关闭当前直播 1表示禁播，2表示封禁账号
+        type: integer
+    required:
+    - liveuid
+    - sign
+    - timestamp
+    type: object
+  body.ToUidLiveUidParam:
+    properties:
+      liveuid:
+        description: 直播间ID
+        type: integer
+      touid:
+        description: 对象用户ID
+        type: integer
+    required:
+    - liveuid
+    - touid
+    type: object
+  body.ToUidLiveUidSignParam:
+    properties:
+      liveuid:
+        description: 直播间ID
+        type: integer
+      sign:
+        description: 签名
+        type: string
+      timestamp:
+        description: 时间戳
+        type: integer
+      uid:
+        description: 对象用户ID
+        type: integer
+    required:
+    - liveuid
+    - sign
+    - timestamp
+    - uid
+    type: object
+  body.ToUidPageParam:
+    properties:
+      length:
+        description: 每页数量
+        example: 1
+        type: integer
+      offset:
+        description: 起始位置
+        example: 1
+        type: integer
+      page:
+        description: 页数
+        example: 1
+        type: integer
+      touid:
+        type: integer
+    type: object
+  body.ToUidParam:
+    properties:
+      touid:
+        type: integer
+    type: object
+  body.TopicGetDetail:
+    properties:
+      length:
+        description: 每页数量
+        example: 1
+        type: integer
+      offset:
+        description: 起始位置
+        example: 1
+        type: integer
+      orderBy:
+        type: integer
+      page:
+        description: 页数
+        example: 1
+        type: integer
+      topicId:
+        type: integer
+    type: object
+  body.TopicGetList:
+    properties:
+      length:
+        description: 每页数量
+        example: 1
+        type: integer
+      name:
+        type: string
+      offset:
+        description: 起始位置
+        example: 1
+        type: integer
+      orderBy:
+        type: integer
+      page:
+        description: 页数
+        example: 1
+        type: integer
+    type: object
+  body.TurnParam:
+    properties:
+      id:
+        description: 价格配置ID
+        type: integer
+      liveuid:
+        description: 直播间ID
+        type: integer
+    required:
+    - id
+    - liveuid
+    type: object
+  body.TypeIdStruct:
+    properties:
+      typeId:
+        description: 类型ID
+        type: integer
+    type: object
+  body.TypeParam:
+    properties:
+      type:
+        description: 1pc、2app
+        type: integer
+    type: object
+  body.UpdateBankParam:
+    properties:
+      alipayAccount:
+        description: 支付宝账号
+        type: string
+      alipayName:
+        description: 支付宝姓名
+        type: string
+      bank:
+        description: 银行名称
+        type: string
+      bankAccount:
+        description: 银行账号
+        type: string
+      bankName:
+        description: 银行开户人姓名
+        type: string
+      branch:
+        description: 银行支行名称
+        type: string
+      btcAccount:
+        description: btc账号
+        type: string
+    type: object
+  body.UpdateFieldsParam:
+    properties:
+      fields:
+        description: json字符串，支持user_nicename,sex,signature,birthday,location
+        type: string
+    required:
+    - fields
+    type: object
+  body.UpdatePassParam:
+    properties:
+      new_pass:
+        description: 新密码
+        type: string
+      old_pass:
+        description: 旧密码
+        type: string
+    required:
+    - new_pass
+    - old_pass
+    type: object
+  body.UserCodeParam:
+    properties:
+      type:
+        description: 找回密码find,注册reg,绑定bind
+        type: string
+      userLogin:
+        type: string
+    required:
+    - userLogin
+    type: object
+  body.UserCodeReturn:
+    type: object
+  body.UserCodeReturnFull:
+    properties:
+      code:
+        example: 0
+        type: integer
+      data:
+        $ref: '#/definitions/body.UserCodeReturn'
+      msg:
+        example: ok
+        type: string
+    type: object
+  body.UserFindPassParam:
+    properties:
+      code:
+        type: string
+      user_login:
+        type: string
+      user_pass:
+        type: string
+    required:
+    - code
+    - user_login
+    - user_pass
+    type: object
+  body.UserListParams:
+    properties:
+      uid:
+        description: 用户ID
+        type: integer
+    type: object
+  body.UserLoginParam:
+    properties:
+      isAgent:
+        type: integer
+      user_login:
+        type: string
+      user_pass:
+        type: string
+    required:
+    - user_login
+    - user_pass
+    type: object
+  body.UserLoginReturn:
+    properties:
+      id:
+        type: integer
+      token:
+        type: string
+    type: object
+  body.UserLoginReturnFull:
+    properties:
+      code:
+        example: 0
+        type: integer
+      data:
+        $ref: '#/definitions/body.UserLoginReturn'
+      msg:
+        example: ok
+        type: string
+    type: object
+  body.UserMessageParam:
+    properties:
+      length:
+        description: 每页数量
+        example: 1
+        type: integer
+      mesTypes:
+        description: 消息类型 1：点赞 2：收藏 3：@我 4：收到的评论 5：系统通知
+        items:
+          type: integer
+        type: array
+      offset:
+        description: 起始位置
+        example: 1
+        type: integer
+      page:
+        description: 页数
+        example: 1
+        type: integer
+      uid:
+        type: integer
+    type: object
+  body.UserNewsParam:
+    properties:
+      length:
+        description: 每页数量
+        example: 1
+        type: integer
+      offset:
+        description: 起始位置
+        example: 1
+        type: integer
+      orderType:
+        description: 排序规则，0时间1热度2收藏
+        type: integer
+      page:
+        description: 页数
+        example: 1
+        type: integer
+      touid:
+        type: integer
+      typeId:
+        description: 类型ID
+        type: integer
+    type: object
+  body.UserRegisterParam:
+    properties:
+      agentId:
+        type: string
+      hardwareId:
+        description: 硬件ID
+        type: string
+      registerType:
+        description: 1游客，默认0普通注册
+        type: integer
+      source:
+        default: pc
+        type: string
+      user_login:
+        description: 游客类型不用传此参数
+        type: string
+      user_pass:
+        type: string
+    required:
+    - user_pass
+    type: object
+  body.UserRegisterReturn:
+    type: object
+  body.UserRegisterReturnFull:
+    properties:
+      code:
+        example: 0
+        type: integer
+      data:
+        $ref: '#/definitions/body.UserRegisterReturn'
+      msg:
+        example: ok
+        type: string
+    type: object
+  body.UserSearchParam:
+    properties:
+      key:
+        type: string
+      length:
+        description: 每页数量
+        example: 1
+        type: integer
+      offset:
+        description: 起始位置
+        example: 1
+        type: integer
+      page:
+        description: 页数
+        example: 1
+        type: integer
+    type: object
+  body.UserVideoData:
+    properties:
+      collectionCount:
+        description: 收藏数
+        type: integer
+      commentCount:
+        description: 评论数
+        type: integer
+      likeCount:
+        description: 点赞数
+        type: integer
+      seeCount:
+        description: 浏览数
+        type: integer
+    type: object
+  body.UserVideoListParam:
+    properties:
+      length:
+        description: 每页数量
+        example: 1
+        type: integer
+      offset:
+        description: 起始位置
+        example: 1
+        type: integer
+      page:
+        description: 页数
+        example: 1
+        type: integer
+      status:
+        description: 状态，0全部1已发布2已下架3未通过4审核中
+        type: integer
+    type: object
+  body.VideoCommentParam:
+    properties:
+      length:
+        description: 每页数量
+        example: 1
+        type: integer
+      offset:
+        description: 起始位置
+        example: 1
+        type: integer
+      page:
+        description: 页数
+        example: 1
+        type: integer
+      sortType:
+        description: 排序类型 1：按照添加时间倒序 2：按照热度
+        type: integer
+      videoId:
+        description: 视频ID
+        type: integer
+    required:
+    - sortType
+    - videoId
+    type: object
+  body.VideoIdParam:
+    properties:
+      videoId:
+        description: 视频ID
+        type: integer
+    required:
+    - videoId
+    type: object
+  body.VideoIdsParam:
+    properties:
+      videoIds:
+        description: 视频ID
+        items:
+          type: integer
+        type: array
+    required:
+    - videoIds
+    type: object
+  body.VideoRecommendParam:
+    properties:
+      length:
+        description: 每页数量
+        example: 1
+        type: integer
+      offset:
+        description: 起始位置
+        example: 1
+        type: integer
+      page:
+        description: 页数
+        example: 1
+        type: integer
+      type:
+        description: 类型 1-所有可用 2-免费 3-精选 4-G点视频 5-VIP视频 6-随机插入G点视频 7-短视频
+        type: integer
+      typeId:
+        description: 类型ID
+        type: integer
+      videoId:
+        description: 视频ID
+        type: integer
+    type: object
+  body.VideoSearchListParam:
+    properties:
+      searchList:
+        items:
+          $ref: '#/definitions/body.VideoSearchParam'
+        type: array
+    type: object
+  body.VideoSearchParam:
+    properties:
+      complete:
+        description: 是否自动补齐
+        type: integer
+      exVideoId:
+        description: 排除ID
+        type: integer
+      length:
+        description: 每页数量
+        example: 1
+        type: integer
+      needUserStatus:
+        description: 是否需要用户状态 0-否 1-是
+        type: integer
+      offset:
+        description: 起始位置
+        example: 1
+        type: integer
+      orderText:
+        items:
+          $ref: '#/definitions/body.OrderText'
+        type: array
+      orderType:
+        description: 推荐类型
+        type: integer
+      page:
+        description: 页数
+        example: 1
+        type: integer
+      searchText:
+        description: 查询内容 文本匹配： 视频名称、视频标签、视频分类
+        type: string
+      type:
+        description: 类型 1-所有可用 2-免费 3-精选 4-G点视频 5-VIP视频 6-随机插入G点视频 7-短视频
+        type: integer
+      typeId:
+        description: 视频类型ID
+        type: integer
+      uid:
+        type: integer
+    type: object
+  car.Car:
+    properties:
+      bg:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      needcoin:
+        type: integer
+      swf:
+        type: string
+      swftime:
+        type: number
+      thumb:
+        type: string
+      words:
+        type: string
+    type: object
+  gift.Gift:
+    properties:
+      gifticon:
+        description: 图片
+        type: string
+      giftname:
+        description: 名称
+        type: string
+      id:
+        type: integer
+      mark:
+        description: 标识，0普通，1热门，2守护，3幸运
+        type: integer
+      needcoin:
+        description: 价格
+        type: integer
+      nums:
+        description: 数量
+        type: integer
+      screenEffect:
+        description: 屏幕效果
+        type: string
+      swf:
+        description: 动画链接
+        type: string
+      swftime:
+        description: 动画时长
+        type: number
+      swftype:
+        description: 动画类型，0gif,1svga
+        type: integer
+      type:
+        description: 类型,0普通礼物，1豪华礼物，2心动
+        type: integer
+    type: object
+  http_error.HttpError:
+    properties:
+      code:
+        example: 400
+        type: integer
+      msg:
+        example: status bad request
+        type: string
+    type: object
+  live.LiveSimpleInfo:
+    properties:
+      anno:
+        description: 公告
+        type: string
+      anyway:
+        type: integer
+      canGift:
+        type: boolean
+      islive:
+        type: integer
+      isvideo:
+        type: integer
+      isvip:
+        type: boolean
+      liveclassid:
+        type: integer
+      nums:
+        type: integer
+      pkuid:
+        type: integer
+      pull:
+        type: string
+      pullFlv:
+        type: string
+      showid:
+        type: integer
+      stream:
+        type: string
+      thumb:
+        type: string
+      title:
+        type: string
+      type:
+        type: integer
+      uid:
+        type: integer
+    type: object
+  liveLevel.LiveLevelInfo:
+    properties:
+      bg:
+        type: string
+      id:
+        type: integer
+      level_up:
+        type: integer
+      levelname:
+        type: string
+      thumb:
+        type: string
+      thumb_mark:
+        type: string
+    type: object
+  news.News:
+    properties:
+      addTime:
+        description: 添加时间
+        type: string
+      address:
+        description: 添加时间
+        type: string
+      aspect:
+        description: 长宽，以-分割
+        type: string
+      cityId:
+        description: 城市ID
+        type: integer
+      cityName:
+        description: 城市
+        type: string
+      collectionCount:
+        description: 收藏数
+        type: integer
+      content:
+        description: 内容
+        type: string
+      cost:
+        description: 隐藏花费
+        type: integer
+      countryName:
+        description: 国家
+        type: string
+      expertise:
+        description: 专业技能
+        type: string
+      id:
+        type: integer
+      key1st:
+        type: string
+      key2nd:
+        type: string
+      key3rd:
+        type: string
+      key4th:
+        type: string
+      key5th:
+        type: string
+      key6th:
+        type: string
+      lat:
+        description: 纬度
+        type: string
+      like:
+        description: 点赞数
+        type: integer
+      lon:
+        description: 经度
+        type: string
+      newsId:
+        type: integer
+      regionName:
+        description: 行政区
+        type: string
+      reply:
+        description: 回复数
+        type: integer
+      salary:
+        description: 期望薪资
+        type: string
+      seeCount:
+        description: 查看数
+        type: integer
+      shareCount:
+        description: 分享数
+        type: integer
+      tag:
+        description: 标签
+        type: string
+      title:
+        description: 标题
+        type: string
+      touid:
+        type: integer
+      type:
+        description: 0图片1媒体
+        type: integer
+      typeId:
+        description: 类型ID
+        type: integer
+      uid:
+        description: 发布人UID
+        type: integer
+      url:
+        description: 原生URL
+        type: string
+    type: object
+  newsComment.Comment:
+    properties:
+      addTime:
+        description: 评论时间
+        type: string
+      comment:
+        description: 评论内容
+        type: string
+      commentId:
+        description: 评论id
+        type: integer
+      hot:
+        description: 热度
+        type: integer
+      id:
+        description: 评论ID
+        type: integer
+      likeCount:
+        description: 点赞数
+        type: integer
+      newsId:
+        description: 视频ID
+        type: integer
+      replyCount:
+        description: 评论数量
+        type: integer
+      replyId:
+        description: 回复的目标评论ID, 0表示没有
+        type: integer
+      touid:
+        description: 回复的目标用户ID, 0表示没有
+        type: integer
+      uid:
+        description: 评论用户ID
+        type: integer
+    type: object
+  success.InfoData:
+    properties:
+      code:
+        example: 0
+        type: integer
+      data:
+        additionalProperties: true
+        type: object
+      msg:
+        example: ok
+        type: string
+    type: object
+  success.ListData:
+    properties:
+      code:
+        example: 0
+        type: integer
+      data:
+        properties:
+          count:
+            type: integer
+          list:
+            items:
+              additionalProperties: true
+              type: object
+            type: array
+        type: object
+      msg:
+        example: ok
+        type: string
+    type: object
+  success.ListNoCountData:
+    properties:
+      code:
+        example: 0
+        type: integer
+      data:
+        properties:
+          list:
+            items:
+              additionalProperties: true
+              type: object
+            type: array
+        type: object
+      msg:
+        example: ok
+        type: string
+    type: object
+  test.Activity:
+    properties:
+      des:
+        type: string
+      id:
+        type: integer
+      tag:
+        type: string
+      thumb:
+        type: string
+      url:
+        type: string
+    type: object
+  user.UserHomeInfo:
+    properties:
+      auth:
+        description: 认证状态，9未审核，0审核中，1通过，2不通过
+        type: integer
+      avatar:
+        description: 头像
+        type: string
+      avatar_thumb:
+        description: 头像缩略图
+        type: string
+      avatarNum:
+        type: integer
+      birthday:
+        description: 生日
+        type: string
+      car:
+        $ref: '#/definitions/car.Car'
+        description: 坐骑信息
+      city:
+        description: 城市
+        type: string
+      coin:
+        description: 钻石余额
+        type: integer
+      collectCount:
+        type: integer
+      contribution:
+        description: 用户本场贡献
+        type: integer
+      coverImg:
+        description: 头像缩略图
+        type: string
+      fans:
+        description: 粉丝数
+        type: integer
+      follows:
+        description: 关注数
+        type: integer
+      guard_type:
+        description: 守护类型
+        type: integer
+      id:
+        description: 用户ID
+        type: integer
+      isCustomerService:
+        description: 是否是客服账号，1是0否
+        type: integer
+      isGuest:
+        description: 是否是游客
+        type: integer
+      isLive:
+        type: integer
+      isattention:
+        description: 是否关注1是0否
+        type: integer
+      level:
+        description: 等级
+        type: integer
+      level_anchor:
+        description: 主播等级
+        type: integer
+      liang:
+        description: 靓号信息
+        type: string
+      likeCount:
+        description: 被点赞数量
+        type: integer
+      liveInfo:
+        $ref: '#/definitions/live.LiveSimpleInfo'
+      liveVip:
+        $ref: '#/definitions/userVip.UserVipInfo'
+        description: 直播VIP信息
+      location:
+        description: 位置
+        type: string
+      news:
+        description: 动态数
+        type: integer
+      newsVip:
+        description: 动态VIP
+        type: integer
+      seeCount:
+        description: 观看数
+        type: integer
+      sex:
+        description: 性别1男2女0保密
+        type: integer
+      shareCount:
+        description: 分享数
+        type: integer
+      signature:
+        description: 签名
+        type: string
+      user_nicename:
+        description: 昵称
+        type: string
+      usertype:
+        description: 30普通用户40管理50主播60超管
+        type: integer
+      videoCount:
+        description: 视频数
+        type: integer
+      videoReply:
+        description: 评论权限
+        type: integer
+      videonums:
+        description: 视频数量
+        type: integer
+      vip:
+        $ref: '#/definitions/userVip.UserVipInfo'
+        description: VIP信息
+      votes:
+        description: 主播印票数
+        type: integer
+    type: object
+  user.UserSimpleInfo:
+    properties:
+      avatar:
+        description: 头像
+        type: string
+      avatar_thumb:
+        description: 头像缩略图
+        type: string
+      collectCount:
+        type: integer
+      coverImg:
+        description: 头像缩略图
+        type: string
+      fans:
+        description: 粉丝数
+        type: integer
+      id:
+        description: 用户ID
+        type: integer
+      isattention:
+        description: 是否关注1是0否
+        type: integer
+      level:
+        description: 等级
+        type: integer
+      level_anchor:
+        description: 主播等级
+        type: integer
+      liang:
+        description: 靓号信息
+        type: string
+      likeCount:
+        description: 点赞数
+        type: integer
+      news:
+        description: 动态数
+        type: integer
+      newsVip:
+        description: 动态VIP
+        type: integer
+      seeCount:
+        description: 观看数
+        type: integer
+      sex:
+        description: 性别1男2女0保密
+        type: integer
+      shareCount:
+        description: 分享数
+        type: integer
+      signature:
+        description: 签名
+        type: string
+      user_nicename:
+        description: 昵称
+        type: string
+      videoCount:
+        description: 视频数
+        type: integer
+      videoReply:
+        description: 评论权限
+        type: integer
+    type: object
+  userLevel.LevelInfo:
+    properties:
+      bg:
+        type: string
+      colour:
+        type: string
+      id:
+        type: integer
+      level_up:
+        type: integer
+      levelname:
+        type: string
+      thumb:
+        type: string
+      thumb_mark:
+        type: string
+    type: object
+  userNewsComment.Comment:
+    properties:
+      addTime:
+        description: 评论时间
+        type: string
+      comment:
+        description: 评论内容
+        type: string
+      commentId:
+        description: 评论id
+        type: integer
+      hot:
+        description: 热度
+        type: integer
+      id:
+        description: 评论ID
+        type: integer
+      isLiked:
+        description: 是否点赞 true：已点赞，false 未点赞
+        type: boolean
+      likeCount:
+        description: 点赞数
+        type: integer
+      newsId:
+        description: 视频ID
+        type: integer
+      replyCount:
+        description: 评论数量
+        type: integer
+      replyId:
+        description: 回复的目标评论ID, 0表示没有
+        type: integer
+      replyList:
+        description: 该评论的回复列表
+        items:
+          $ref: '#/definitions/userNewsComment.Comment'
+        type: array
+      touid:
+        description: 回复的目标用户ID, 0表示没有
+        type: integer
+      touserInfo:
+        $ref: '#/definitions/user.UserSimpleInfo'
+        description: 回复的目标用户信息, 仅当touid!=0时显示
+      uid:
+        description: 评论用户ID
+        type: integer
+      userInfo:
+        $ref: '#/definitions/user.UserSimpleInfo'
+        description: 评论用户信息
+    type: object
+  userVideo.UserVideo:
+    properties:
+      addTime:
+        type: string
+      coverImgUrl:
+        type: string
+      disabled:
+        description: 上架状态，0上架 1下架
+        type: integer
+      id:
+        type: integer
+      name:
+        type: string
+      status:
+        description: 审核状态，0未审核 1已审核 2未通过
+        type: integer
+    type: object
+  userVideoComment.Comment:
+    properties:
+      addTime:
+        description: 评论时间
+        type: string
+      comment:
+        description: 评论内容
+        type: string
+      commentId:
+        description: 评论id
+        type: integer
+      hot:
+        description: 热度
+        type: integer
+      id:
+        description: 评论ID
+        type: integer
+      isLiked:
+        description: 是否点赞 true：已点赞，false 未点赞
+        type: boolean
+      likeCount:
+        description: 点赞数
+        type: integer
+      replyCount:
+        description: 评论数量
+        type: integer
+      replyId:
+        description: 回复的目标评论ID, 0表示没有
+        type: integer
+      replyList:
+        description: 该评论的回复列表
+        items:
+          $ref: '#/definitions/userVideoComment.Comment'
+        type: array
+      touid:
+        description: 回复的目标用户ID, 0表示没有
+        type: integer
+      touserInfo:
+        $ref: '#/definitions/user.UserSimpleInfo'
+        description: 回复的目标用户信息, 仅当touid!=0时显示
+      uid:
+        description: 评论用户ID
+        type: integer
+      userInfo:
+        $ref: '#/definitions/user.UserSimpleInfo'
+        description: 评论用户信息
+      videoId:
+        description: 视频ID
+        type: integer
+    type: object
+  userVip.UserVipInfo:
+    properties:
+      endtime:
+        type: integer
+      level:
+        type: integer
+      type:
+        type: integer
+    type: object
+  video.VideoSimple:
+    properties:
+      addTime:
+        type: string
+      angleType:
+        type: integer
+      coverImgUrl:
+        type: string
+      hot:
+        type: integer
+      id:
+        type: integer
+      isAngle:
+        type: integer
+      isBuy:
+        type: integer
+      isCollect:
+        type: integer
+      isLike:
+        type: integer
+      isVip:
+        type: integer
+      length:
+        type: integer
+      likeCount:
+        type: integer
+      name:
+        type: string
+      point:
+        type: integer
+      seeCount:
+        type: integer
+      uid:
+        type: integer
+      videoSort:
+        type: integer
+    type: object
+  videoComment.Comment:
+    properties:
+      addTime:
+        description: 评论时间
+        type: string
+      comment:
+        description: 评论内容
+        type: string
+      commentId:
+        description: 评论id
+        type: integer
+      hot:
+        description: 热度
+        type: integer
+      id:
+        description: 评论ID
+        type: integer
+      likeCount:
+        description: 点赞数
+        type: integer
+      replyCount:
+        description: 评论数量
+        type: integer
+      replyId:
+        description: 回复的目标评论ID, 0表示没有
+        type: integer
+      touid:
+        description: 回复的目标用户ID, 0表示没有
+        type: integer
+      uid:
+        description: 评论用户ID
+        type: integer
+      videoId:
+        description: 视频ID
+        type: integer
+    type: object
+host: test.pgc.api.yimisaas.com
+info:
+  contact: {}
+  description: 直播&点播 API文档.
+  title: API 文档
+  version: "1.67"
+paths:
+  /activity/getList:
+    post:
+      consumes:
+      - application/json
+      description: 获取活动列表
+      parameters:
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.ActivityGetList'
+      responses:
+        "0":
+          description: ""
+          schema:
+            items:
+              $ref: '#/definitions/actor.Actor'
+            type: array
+      summary: 活动-获取活动列表
+      tags:
+      - 活动相关
+  /actor/getActorInfo:
+    post:
+      consumes:
+      - application/json
+      description: 获取测试信息
+      parameters:
+      - description: Update account
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.ActorIdParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            items:
+              $ref: '#/definitions/test.Activity'
+            type: array
+      summary: 测试-测试信息
+      tags:
+      - 测试相关
+  /actor/getActorList:
+    post:
+      consumes:
+      - application/json
+      description: 获取演员列表
+      parameters:
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.ActorListParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            items:
+              $ref: '#/definitions/actor.Actor'
+            type: array
+      summary: 演员-主演列表
+      tags:
+      - 演员相关
+  /actor/getActorRecList:
+    post:
+      consumes:
+      - application/json
+      description: 获取演员推荐视频列表
+      parameters:
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.ActorRecListParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            items:
+              $ref: '#/definitions/actor.Actor'
+            type: array
+      summary: 演员-推荐视频列表
+      tags:
+      - 演员相关
+  /actor/getActorVideoList:
+    post:
+      consumes:
+      - application/json
+      description: 获取演员视频列表
+      parameters:
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.ActorIdPageParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            items:
+              $ref: '#/definitions/video.VideoSimple'
+            type: array
+      summary: 演员-视频列表
+      tags:
+      - 演员相关
+  /agent/getAchivementList:
+    post:
+      consumes:
+      - application/json
+      description: 获取代理收益
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.AchivementParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 代理-获取收益
+      tags:
+      - 代理相关
+  /agent/getBank:
+    post:
+      consumes:
+      - application/json
+      description: 获取代理银行详情
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 代理-银行信息
+      tags:
+      - 代理相关
+  /agent/getDetail:
+    post:
+      consumes:
+      - application/json
+      description: 获取代理详情
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 代理-详情
+      tags:
+      - 代理相关
+  /agent/getDrow:
+    post:
+      consumes:
+      - application/json
+      description: 获取代理提现记录
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.PageTrait'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 代理-提现记录
+      tags:
+      - 代理相关
+  /agent/getShortUrl:
+    post:
+      consumes:
+      - application/json
+      description: 获取推广链接
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 代理-推广链接
+      tags:
+      - 代理相关
+  /agent/getSubagentAchievementList:
+    post:
+      consumes:
+      - application/json
+      description: 获取子代理收益
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.PageTrait'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 代理-获取子代理收益
+      tags:
+      - 代理相关
+  /agent/getTotal:
+    post:
+      consumes:
+      - application/json
+      description: 获取代理统计
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 代理-统计
+      tags:
+      - 代理相关
+  /agent/getVoteRecord:
+    post:
+      consumes:
+      - application/json
+      description: 获取印票变动明细
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.PageTrait'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 代理-获取印票变动明细
+      tags:
+      - 代理相关
+  /agent/removeWithdrawalsRecord:
+    post:
+      consumes:
+      - application/json
+      description: 删除代理的提现记录
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.RemoveWithdrawalsRecordParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 代理-删除提现记录
+      tags:
+      - 代理相关
+  /agent/updateBank:
+    post:
+      consumes:
+      - application/json
+      description: 更新代理银行信息
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.UpdateBankParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 代理-更新银行信息
+      tags:
+      - 代理相关
+  /agent/withdrawals:
+    post:
+      consumes:
+      - application/json
+      description: 代理请求提现
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 代理-提现
+      tags:
+      - 代理相关
+  /album/getAlbumInfo:
+    post:
+      consumes:
+      - application/json
+      description: 获取专辑信息
+      parameters:
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.AlbumIdParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/album.Album'
+      summary: 专辑-专辑信息
+      tags:
+      - 专辑相关
+  /album/getAlbumList:
+    post:
+      consumes:
+      - application/json
+      description: 获取专辑列表
+      parameters:
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.GetAlbumListParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            items:
+              $ref: '#/definitions/album.Album'
+            type: array
+      summary: 专辑-专辑列表
+      tags:
+      - 专辑相关
+  /album/getAlbumRecList:
+    post:
+      consumes:
+      - application/json
+      description: 获取专辑推荐视频列表
+      parameters:
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.AlbumRecListParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            items:
+              $ref: '#/definitions/album.Album'
+            type: array
+      summary: 专辑-推荐视频列表
+      tags:
+      - 专辑相关
+  /album/getAlbumVideoList:
+    post:
+      consumes:
+      - application/json
+      description: 获取专辑视频列表
+      parameters:
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.AlbumIdPageParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            items:
+              $ref: '#/definitions/video.VideoSimple'
+            type: array
+      summary: 专辑-视频列表
+      tags:
+      - 专辑相关
+  /backpack/getBackpack:
+    post:
+      consumes:
+      - application/json
+      description: 获取背包礼物
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListNoCountData'
+      summary: 背包
+      tags:
+      - 直播用户相关
+  /base/getConfig:
+    post:
+      consumes:
+      - application/json
+      description: 获取配置信息
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 获取配置信息
+      tags:
+      - 基础
+  /base/getGuide:
+    post:
+      consumes:
+      - application/json
+      description: 获取引导页信息
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 获取引导页信息
+      tags:
+      - 基础
+  /car/buyCar:
+    post:
+      consumes:
+      - application/json
+      description: 坐骑-购买坐骑
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.IdParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 坐骑-购买坐骑
+      tags:
+      - 坐骑
+  /car/getCarInfo:
+    post:
+      consumes:
+      - application/json
+      description: 坐骑-坐骑列表
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListNoCountData'
+      summary: 坐骑-坐骑列表
+      tags:
+      - 坐骑
+  /car/getMyCar:
+    post:
+      consumes:
+      - application/json
+      description: 坐骑-获取我的坐骑
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListNoCountData'
+      summary: 坐骑-获取我的坐骑
+      tags:
+      - 坐骑
+  /car/setCar:
+    post:
+      consumes:
+      - application/json
+      description: 坐骑-设置坐骑
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.IdParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 坐骑-设置坐骑
+      tags:
+      - 坐骑
+  /card/buy:
+    post:
+      consumes:
+      - application/json
+      description: 卡密-购买卡密
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.CardBuyParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 卡密-购买卡密
+      tags:
+      - 卡密
+  /card/exchange:
+    post:
+      consumes:
+      - application/json
+      description: 卡密-兑换卡密
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.CardExchangeParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 卡密-兑换卡密
+      tags:
+      - 卡密
+  /chat/clearHistory:
+    post:
+      consumes:
+      - application/json
+      description: 清除和某用户的历史聊天记录
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.ClearHistoryParams'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 清除历史记录
+      tags:
+      - IM聊天
+  /chat/clearUserList:
+    post:
+      consumes:
+      - application/json
+      description: 清除和某用户在用户列表中的记录
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.ClearUserListParams'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 清除聊天对象记录
+      tags:
+      - IM聊天
+  /chat/customerServiceList:
+    post:
+      consumes:
+      - application/json
+      description: 获取在线的客服列表
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListData'
+      summary: 客服列表
+      tags:
+      - IM聊天
+  /chat/getHistory:
+    post:
+      consumes:
+      - application/json
+      description: 获取和某用户的历史聊天记录，分页
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.ChatHistoryParams'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListData'
+      summary: 历史记录
+      tags:
+      - IM聊天
+  /chat/hasMsg:
+    post:
+      consumes:
+      - application/json
+      description: 获取是否有未读消息
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 查看消息
+      tags:
+      - IM聊天
+  /chat/read:
+    post:
+      consumes:
+      - application/json
+      description: 标记与某用户的消息为已读
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.ReadParams'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 标记消息
+      tags:
+      - IM聊天
+  /chat/send:
+    post:
+      consumes:
+      - application/json
+      description: 发送消息给用户
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.SendParams'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 发送消息
+      tags:
+      - IM聊天
+  /chat/userList:
+    post:
+      consumes:
+      - application/json
+      description: 获取历史聊天的用户列表
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.UserListParams'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListData'
+      summary: 用户列表
+      tags:
+      - IM聊天
+  /crowd/draw:
+    post:
+      consumes:
+      - application/json
+      description: 参与抽奖
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.CrowdDrawParams'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 参与抽奖
+      tags:
+      - 抽奖相关
+  /crowd/get:
+    post:
+      consumes:
+      - application/json
+      description: 抽奖信息
+      parameters:
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.CrowdGetParams'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 抽奖信息
+      tags:
+      - 抽奖相关
+  /crowd/launch:
+    post:
+      consumes:
+      - application/json
+      description: 发起抽奖
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.CrowdLaunchParams'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 发起抽奖
+      tags:
+      - 抽奖相关
+  /crowd/liveLog:
+    post:
+      consumes:
+      - application/json
+      description: 抽奖历史
+      parameters:
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.CrowdLiveLogParams'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 抽奖历史
+      tags:
+      - 抽奖相关
+  /crowd/result:
+    post:
+      consumes:
+      - application/json
+      description: 抽奖结果
+      parameters:
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.CrowdResultParams'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 抽奖结果
+      tags:
+      - 抽奖相关
+  /gather/add:
+    post:
+      consumes:
+      - application/json
+      description: 合集-新增合集
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.GatherAddParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 合集-新增合集
+      tags:
+      - 合集
+  /gather/buy:
+    post:
+      consumes:
+      - application/json
+      description: 合集-购买
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.GatherBuyParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 合集-购买
+      tags:
+      - 合集
+  /gather/getDetail:
+    post:
+      consumes:
+      - application/json
+      description: 合集-合集详情
+      parameters:
+      - description: 搜索条件
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.GatherDetailParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListData'
+      summary: 合集-合集详情
+      tags:
+      - 合集
+  /gather/getList:
+    post:
+      consumes:
+      - application/json
+      description: 合集-合集列表
+      parameters:
+      - description: 搜索条件
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.GatherSearchParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListData'
+      summary: 合集-合集列表
+      tags:
+      - 合集
+  /gather/getListByMyself:
+    post:
+      consumes:
+      - application/json
+      description: 合集-用户合集列表
+      parameters:
+      - description: 搜索条件
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.GatherSearchParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListData'
+      summary: 合集-用户合集列表
+      tags:
+      - 合集
+  /gather/getListByVideoId:
+    post:
+      consumes:
+      - application/json
+      description: 合集-根据视频ID获取归属的合集列表
+      parameters:
+      - description: 视频id
+        in: body
+        name: videoId
+        required: true
+        schema:
+          type: integer
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListData'
+      summary: 合集-根据视频ID获取归属的合集列表
+      tags:
+      - 合集
+  /gather/preBuy:
+    post:
+      consumes:
+      - application/json
+      description: 合集-购买前
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.GatherPreBuyParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 合集-购买前
+      tags:
+      - 合集
+  /guard/buyGuard:
+    post:
+      consumes:
+      - application/json
+      description: 购买守护
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.BuyGuardParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 购买守护
+      tags:
+      - 直播守护相关
+  /guard/getGuardList:
+    post:
+      consumes:
+      - application/json
+      description: 获取守护用户列表
+      parameters:
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.LiveIdParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListNoCountData'
+      summary: 获取守护用户列表
+      tags:
+      - 直播守护相关
+  /guard/getList:
+    post:
+      consumes:
+      - application/json
+      description: 获取守护列表价格信息
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        type: string
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 获取守护列表
+      tags:
+      - 直播守护相关
+  /home/feedback:
+    post:
+      consumes:
+      - application/json
+      description: 反馈
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.FeedbackParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 反馈
+  /home/getAds:
+    post:
+      consumes:
+      - application/json
+      description: 获取广告
+      parameters:
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.AdsTypeParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListNoCountData'
+      summary: 获取广告
+  /home/getAnno:
+    post:
+      consumes:
+      - application/json
+      description: 获取公告
+      parameters:
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.AnnoParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListData'
+      summary: 获取公告
+  /home/getAnnoDetail:
+    post:
+      consumes:
+      - application/json
+      description: 获取公告详情
+      parameters:
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.IdParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 获取公告详情
+  /home/getBanner:
+    post:
+      consumes:
+      - application/json
+      description: 获取banner
+      parameters:
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.TypeParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListNoCountData'
+      summary: 获取banner
+  /home/getCity:
+    post:
+      consumes:
+      - application/json
+      description: 获取城市数据
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 获取城市数据
+  /home/getFAQ:
+    post:
+      consumes:
+      - application/json
+      description: 获取常见问题
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListData'
+      summary: 常见问题
+  /home/getFAQInfo:
+    post:
+      consumes:
+      - application/json
+      description: 获取常见问题详情
+      parameters:
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.IdParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 常见问题详情
+  /home/getGiftNotice:
+    post:
+      consumes:
+      - application/json
+      description: 获取礼物消息
+      parameters:
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.PageTrait'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListData'
+      summary: 礼物消息
+  /home/getNotice:
+    post:
+      consumes:
+      - application/json
+      description: 获取系统消息
+      parameters:
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.PageTrait'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListData'
+      summary: 系统消息
+  /home/getWords:
+    post:
+      consumes:
+      - application/json
+      description: 获取热门搜索词汇
+      parameters:
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.PageTrait'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListData'
+      summary: 获取热门搜索词汇
+  /home/releasePic:
+    post:
+      consumes:
+      - multipart/form-data
+      description: 上传图片
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: 支持news,live,auth,im
+        in: formData
+        name: type
+        required: true
+        type: string
+      - description: 图片，返回标识id与图片地址
+        in: formData
+        name: file
+        required: true
+        type: file
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 上传图片
+  /live/changeLive:
+    post:
+      consumes:
+      - application/json
+      description: 修改直播状态
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.StatusParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListData'
+      summary: 修改直播状态
+      tags:
+      - 直播主播相关
+  /live/checkLive:
+    post:
+      consumes:
+      - application/json
+      description: 检查直播
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: 返回type 0可以进入,1密码房间,2收费房间未缴费,3计时房间
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.LiveIdParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 检查直播
+      tags:
+      - 直播用户相关
+  /live/createRoom:
+    post:
+      consumes:
+      - application/json
+      description: 创建开播
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.CreateRoomParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListData'
+      summary: 创建开播
+      tags:
+      - 直播主播相关
+  /live/endPK:
+    post:
+      consumes:
+      - application/json
+      description: 用于PK结束处理业务
+      parameters:
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.EndPkParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: PK结束
+      tags:
+      - 直播PK相关
+  /live/enterRoom:
+    post:
+      consumes:
+      - application/json
+      description: 进入直播间
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.LiveIdParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 进入直播间
+      tags:
+      - 直播用户相关
+  /live/getGiftList:
+    post:
+      consumes:
+      - application/json
+      description: 获取可赠送的礼物列表
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        type: string
+      responses:
+        "0":
+          description: ""
+          schema:
+            items:
+              $ref: '#/definitions/gift.Gift'
+            type: array
+      summary: 获取可赠送的礼物列表
+      tags:
+      - 直播礼物相关
+  /live/getHot:
+    post:
+      consumes:
+      - application/json
+      description: 获取热门主播
+      parameters:
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.PageTrait'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListData'
+      summary: 获取热门主播
+      tags:
+      - 直播相关
+  /live/getJackpot:
+    post:
+      consumes:
+      - application/json
+      description: 获取奖池信息
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 奖池
+      tags:
+      - 直播相关
+  /live/getKickList:
+    post:
+      consumes:
+      - application/json
+      description: 用于获取房间踢出用户列表
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.LiveIdParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 房间踢出用户列表
+      tags:
+      - 直播管理相关
+  /live/getLive:
+    post:
+      consumes:
+      - application/json
+      description: 直播搜索
+      parameters:
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.LiveSearchParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListData'
+      summary: 直播搜索
+      tags:
+      - 直播相关
+  /live/getLiveClass:
+    post:
+      consumes:
+      - application/json
+      description: 分类列表
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListNoCountData'
+      summary: 分类列表
+      tags:
+      - 直播相关
+  /live/getLiveFollowed:
+    post:
+      consumes:
+      - application/json
+      description: 关注的直播间列表
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.PageTrait'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListData'
+      summary: 关注的直播间列表
+      tags:
+      - 直播相关
+  /live/getLiveInfo:
+    post:
+      consumes:
+      - application/json
+      description: 获取直播间信息
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.LiveIdParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 获取直播间信息
+      tags:
+      - 直播相关
+  /live/getManageList:
+    post:
+      consumes:
+      - application/json
+      description: 用于获取主播房间内的管理员列表
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListData'
+      summary: 我的管理员
+      tags:
+      - 直播管理相关
+  /live/getPop:
+    post:
+      consumes:
+      - application/json
+      description: 用于直播间弹窗信息
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.ToUidLiveUidParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 弹窗
+      tags:
+      - 直播相关
+  /live/getRedList:
+    post:
+      consumes:
+      - application/json
+      description: 获取红包列表
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.LiveIdParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 获取红包列表
+      tags:
+      - 直播红包相关
+  /live/getRedRobList:
+    post:
+      consumes:
+      - application/json
+      description: 获取红包领取列表
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.IdParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 红包领取列表
+      tags:
+      - 直播红包相关
+  /live/getRoomList:
+    post:
+      consumes:
+      - application/json
+      description: 用于获取我是管理员的直播间
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListNoCountData'
+      summary: 我的房间
+      tags:
+      - 直播管理相关
+  /live/getSDK:
+    post:
+      consumes:
+      - application/json
+      description: 获取SDK
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 获取SDK
+      tags:
+      - 直播相关
+  /live/getShutList:
+    post:
+      consumes:
+      - application/json
+      description: 用于获取房间禁言用户列表
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.LiveIdParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListNoCountData'
+      summary: 禁言用户列表
+      tags:
+      - 直播管理相关
+  /live/getTurn:
+    post:
+      consumes:
+      - application/json
+      description: 用于获取转盘配置
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 转盘配置
+      tags:
+      - 大转盘
+  /live/getTurnWin:
+    post:
+      consumes:
+      - application/json
+      description: 用于获取中奖记录
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.PageTrait'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListData'
+      summary: 中奖记录
+      tags:
+      - 大转盘
+  /live/getUserLists:
+    post:
+      consumes:
+      - application/json
+      description: 用于获取用户列表
+      parameters:
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.LiveIdParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListData'
+      summary: 获取用户列表
+      tags:
+      - 直播用户相关
+  /live/getZombie:
+    post:
+      consumes:
+      - application/json
+      description: 获取僵尸粉
+      parameters:
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.ToUidLiveUidSignParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 获取僵尸粉
+      tags:
+      - 直播用户相关
+  /live/isMic:
+    post:
+      consumes:
+      - application/json
+      description: 判断主播是否开启连麦
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.LiveIdParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 判断主播是否开启连麦
+      tags:
+      - 直播连麦相关
+  /live/levelanchor:
+    post:
+      consumes:
+      - application/json
+      description: 直播等级
+      responses:
+        "0":
+          description: ""
+          schema:
+            items:
+              $ref: '#/definitions/liveLevel.LiveLevelInfo'
+            type: array
+      summary: 直播等级
+      tags:
+      - 直播相关
+  /live/mergeMixStream:
+    post:
+      consumes:
+      - application/json
+      description: 用于连麦混流
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 连麦混流
+      tags:
+      - 直播连麦相关
+  /live/micChangeLive:
+    post:
+      consumes:
+      - application/json
+      description: 用于连麦成功后更新数据库信息
+      parameters:
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.MicChangeLiveParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 修改直播信息
+      tags:
+      - 直播PK相关
+  /live/pkChangeLive:
+    post:
+      consumes:
+      - application/json
+      description: 用于检测要连麦主播是否直播中
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.LiveIdParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 检测是否直播中
+      tags:
+      - 直播PK相关
+  /live/robRed:
+    post:
+      consumes:
+      - application/json
+      description: 抢红包
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.RobRedParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 抢红包
+      tags:
+      - 直播红包相关
+  /live/roomCharge:
+    post:
+      consumes:
+      - application/json
+      description: 用于房间扣费
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.LiveIdParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 房间扣费
+      tags:
+      - 直播用户相关
+  /live/sendBarrage:
+    post:
+      consumes:
+      - application/json
+      description: 发送弹幕
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.SendBarrageParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 发送弹幕
+      tags:
+      - 直播用户相关
+  /live/sendGift:
+    post:
+      consumes:
+      - application/json
+      description: 发送礼物
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.SendGiftParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListNoCountData'
+      summary: 发送礼物
+      tags:
+      - 直播礼物相关
+  /live/sendRed:
+    post:
+      consumes:
+      - application/json
+      description: 发红包
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.SendRedParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 发红包
+      tags:
+      - 直播红包相关
+  /live/setAdmin:
+    post:
+      consumes:
+      - application/json
+      description: 设置/取消管理员
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.ToUidParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 设置/取消管理员
+      tags:
+      - 直播管理相关
+  /live/setKick:
+    post:
+      consumes:
+      - application/json
+      description: 设置/解除房间黑名单
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.ToUidLiveUidParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 设置/解除房间黑名单
+      tags:
+      - 直播管理相关
+  /live/setMic:
+    post:
+      consumes:
+      - application/json
+      description: 设置连麦开关
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.SetMicParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 设置连麦开关
+      tags:
+      - 直播连麦相关
+  /live/setPk:
+    post:
+      consumes:
+      - application/json
+      description: 用于PK开始处理业务
+      parameters:
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.PkUidsParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: PK开始
+      tags:
+      - 直播PK相关
+  /live/setShut:
+    post:
+      consumes:
+      - application/json
+      description: 设置/解除禁言
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.SetShutParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 设置/解除禁言
+      tags:
+      - 直播管理相关
+  /live/stopInfo:
+    post:
+      consumes:
+      - application/json
+      description: 获取关闭直播信息
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.StreamParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 关闭直播信息
+      tags:
+      - 直播主播相关
+  /live/stopRoom:
+    post:
+      consumes:
+      - application/json
+      description: 关闭直播
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListData'
+      summary: 关闭直播
+      tags:
+      - 直播主播相关
+  /live/superStopRoom:
+    post:
+      consumes:
+      - application/json
+      description: 超管关播
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.SuperStopRoomParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 超管关播
+      tags:
+      - 直播管理相关
+  /live/systemStopRoom:
+    post:
+      consumes:
+      - application/json
+      description: 系统关播
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.SystemStopRoomParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 系统关播
+      tags:
+      - 直播管理相关
+  /live/timeCharge:
+    post:
+      consumes:
+      - application/json
+      description: 用于房间计时扣费
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.LiveIdParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 房间计时扣费
+      tags:
+      - 直播用户相关
+  /live/turn:
+    post:
+      consumes:
+      - application/json
+      description: 用于用户抽奖
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.TurnParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 抽奖
+      tags:
+      - 大转盘
+  /login/getCode:
+    post:
+      consumes:
+      - application/json
+      description: 获取验证码
+      parameters:
+      - description: 账号和类型，type:find找回密码，reg注册
+        in: body
+        name: codeParam
+        required: true
+        schema:
+          $ref: '#/definitions/body.UserCodeParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/body.UserCodeReturnFull'
+        "1010":
+          description: ""
+          schema:
+            $ref: '#/definitions/http_error.HttpError'
+        "1011":
+          description: ""
+          schema:
+            $ref: '#/definitions/http_error.HttpError'
+        "1012":
+          description: ""
+          schema:
+            $ref: '#/definitions/http_error.HttpError'
+        "1013":
+          description: ""
+          schema:
+            $ref: '#/definitions/http_error.HttpError'
+      summary: 获取验证码
+      tags:
+      - 登录相关
+  /login/userFindPass:
+    post:
+      consumes:
+      - application/json
+      description: 找回密码
+      parameters:
+      - description: 账号和密码和验证码
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.UserFindPassParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/body.UserLoginReturnFull'
+        "1002":
+          description: ""
+          schema:
+            $ref: '#/definitions/http_error.HttpError'
+        "1003":
+          description: ""
+          schema:
+            $ref: '#/definitions/http_error.HttpError'
+        "1004":
+          description: ""
+          schema:
+            $ref: '#/definitions/http_error.HttpError'
+      summary: 找回密码
+      tags:
+      - 登录相关
+  /login/userLogin:
+    post:
+      consumes:
+      - application/json
+      description: 登录
+      parameters:
+      - description: 账号和密码
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.UserLoginParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/body.UserLoginReturnFull'
+        "1002":
+          description: ""
+          schema:
+            $ref: '#/definitions/http_error.HttpError'
+        "1003":
+          description: ""
+          schema:
+            $ref: '#/definitions/http_error.HttpError'
+        "1004":
+          description: ""
+          schema:
+            $ref: '#/definitions/http_error.HttpError'
+      summary: 登录
+      tags:
+      - 登录相关
+  /login/userReg:
+    post:
+      consumes:
+      - application/json
+      description: 注册
+      parameters:
+      - description: 账号和密码
+        in: body
+        name: registerParam
+        required: true
+        schema:
+          $ref: '#/definitions/body.UserRegisterParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/body.UserRegisterReturnFull'
+        "1005":
+          description: ""
+          schema:
+            $ref: '#/definitions/http_error.HttpError'
+        "1006":
+          description: ""
+          schema:
+            $ref: '#/definitions/http_error.HttpError'
+        "1007":
+          description: ""
+          schema:
+            $ref: '#/definitions/http_error.HttpError'
+        "1008":
+          description: ""
+          schema:
+            $ref: '#/definitions/http_error.HttpError'
+        "1010":
+          description: ""
+          schema:
+            $ref: '#/definitions/http_error.HttpError'
+        "1012":
+          description: ""
+          schema:
+            $ref: '#/definitions/http_error.HttpError'
+      summary: 注册
+      tags:
+      - 登录相关
+  /mission/getList:
+    post:
+      consumes:
+      - application/json
+      description: 获取任务
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListData'
+      summary: 获取任务
+      tags:
+      - 任务相关
+  /news/addCommentsLike:
+    post:
+      consumes:
+      - application/json
+      description: 动态评论点赞
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.CommentLikeParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 动态评论点赞
+      tags:
+      - 动态相关
+  /news/buy:
+    post:
+      consumes:
+      - application/json
+      description: 购买隐藏内容
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: 动态id
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.NewsIdParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 购买隐藏内容
+      tags:
+      - 动态
+  /news/buyVip:
+    post:
+      consumes:
+      - application/json
+      description: 开通动态VIP
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 开通动态VIP
+      tags:
+      - 动态
+  /news/collect:
+    post:
+      consumes:
+      - application/json
+      description: 收藏
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: 动态id
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.NewsIdParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 收藏
+      tags:
+      - 动态
+  /news/collectionList:
+    post:
+      consumes:
+      - application/json
+      description: 收藏列表
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.PageTrait'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListData'
+      summary: 收藏列表
+      tags:
+      - 动态
+  /news/commentInfo:
+    post:
+      consumes:
+      - application/json
+      description: 查看动态评论详情
+      parameters:
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.CommentIdParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/userNewsComment.Comment'
+      summary: 查看动态评论详情
+      tags:
+      - 动态相关
+  /news/commentList:
+    post:
+      consumes:
+      - application/json
+      description: 获取视频评论
+      parameters:
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.NewsCommentParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            items:
+              $ref: '#/definitions/newsComment.Comment'
+            type: array
+      summary: 获取动态评论
+      tags:
+      - 动态相关
+  /news/denounce:
+    post:
+      consumes:
+      - application/json
+      description: 举报动态
+      parameters:
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.DenounceParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 举报动态
+      tags:
+      - 动态
+  /news/getAddrNews:
+    post:
+      consumes:
+      - application/json
+      description: 相同位置动态列表
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.GetCityNewsParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/news.News'
+      summary: 相同位置动态列表
+      tags:
+      - 动态
+  /news/getCityNews:
+    post:
+      consumes:
+      - application/json
+      description: 同城动态列表
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.GetCityNewsParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/news.News'
+      summary: 同城动态列表
+      tags:
+      - 动态
+  /news/getFollowsNews:
+    post:
+      consumes:
+      - application/json
+      description: 关注up主动态列表
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.GetFollowsNewsParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/news.News'
+      summary: 关注up主动态列表
+      tags:
+      - 动态
+  /news/getMyNews:
+    post:
+      consumes:
+      - application/json
+      description: 获取用户的动态列表
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.UserNewsParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/news.News'
+      summary: 我的动态列表
+      tags:
+      - 动态
+  /news/getNews:
+    post:
+      consumes:
+      - application/json
+      description: 获取动态列表
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.GetNewsParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/news.News'
+      summary: 动态列表
+      tags:
+      - 动态
+  /news/getNewsInfo:
+    post:
+      consumes:
+      - application/json
+      description: 删除动态
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        type: string
+      - description: 动态id与每页长度和页数
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.NewsIdParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/news.News'
+      summary: 删除动态
+      tags:
+      - 动态
+  /news/getReply:
+    post:
+      consumes:
+      - application/json
+      description: 获取回复列表
+      parameters:
+      - description: 动态id与每页长度和页数
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.GetReplyParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListData'
+      summary: 回复列表
+      tags:
+      - 动态
+  /news/getTags:
+    post:
+      consumes:
+      - application/json
+      description: 获取动态标签列表
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 动态标签列表
+      tags:
+      - 动态
+  /news/getTypes:
+    post:
+      consumes:
+      - application/json
+      description: 获取动态分类列表
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 动态分类列表
+      tags:
+      - 动态
+  /news/getUserNews:
+    post:
+      consumes:
+      - application/json
+      description: 获取用户的动态列表
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.UserNewsParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/news.News'
+      summary: 用户的动态列表
+      tags:
+      - 动态
+  /news/like:
+    post:
+      consumes:
+      - application/json
+      description: 点赞
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: 动态id
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.NewsLikeParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 点赞
+      tags:
+      - 动态
+  /news/likeUserList:
+    post:
+      consumes:
+      - application/json
+      description: 点赞动态用户列表
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.GetNewsUserLike'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListData'
+      summary: 点赞动态用户列表
+      tags:
+      - 动态
+  /news/preBuy:
+    post:
+      consumes:
+      - application/json
+      description: 预购买隐藏内容
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: 动态id
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.NewsIdParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 预购买隐藏内容
+      tags:
+      - 动态
+  /news/queryNews:
+    post:
+      consumes:
+      - application/json
+      description: 动态搜索
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.GetQueryNewsParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/news.News'
+      summary: 动态搜索
+      tags:
+      - 动态
+  /news/recommend:
+    post:
+      consumes:
+      - application/json
+      description: 获取动态推荐列表
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.GetReplyParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/news.News'
+      summary: 动态推荐列表
+      tags:
+      - 动态
+  /news/releaseMedia:
+    post:
+      consumes:
+      - multipart/form-data
+      description: 上传动态媒体
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: 媒体，返回标识id与媒体地址
+        in: formData
+        name: file
+        required: true
+        type: file
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 上传动态媒体
+      tags:
+      - 动态
+  /news/releaseNews:
+    post:
+      consumes:
+      - application/json
+      description: 发布动态
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.AddNewsParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 发布动态
+      tags:
+      - 动态
+  /news/releaseReply:
+    post:
+      consumes:
+      - application/json
+      description: 回复动态
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: 回复的动态id和内容
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.ReplyParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 回复动态
+      tags:
+      - 动态
+  /news/removeCommentsLike:
+    post:
+      consumes:
+      - application/json
+      description: 取消评论点赞
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.CommentLikeParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 取消评论点赞
+      tags:
+      - 动态相关
+  /news/reply:
+    post:
+      consumes:
+      - application/json
+      description: 添加动态评论
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.CommentReplyParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 回复
+      tags:
+      - 动态相关
+  /news/replyList:
+    post:
+      consumes:
+      - application/json
+      description: 获取动态评论回复
+      parameters:
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.ReplyIdListParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            items:
+              $ref: '#/definitions/newsComment.Comment'
+            type: array
+      summary: 获取动态评论回复
+      tags:
+      - 动态相关
+  /news/unCollect:
+    post:
+      consumes:
+      - application/json
+      description: 取消收藏
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: 动态id
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.NewsIdParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 取消收藏
+      tags:
+      - 动态
+  /news/unlike:
+    post:
+      consumes:
+      - application/json
+      description: 取消点赞
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: 动态id
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.NewsIdParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 取消点赞
+      tags:
+      - 动态
+  /order/getList:
+    post:
+      consumes:
+      - application/json
+      description: 获取用户订单列表
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.OrderGetList'
+      responses: {}
+      summary: 获取用户订单列表
+      tags:
+      - 用户订单
+  /order/getPaymentList:
+    post:
+      consumes:
+      - application/json
+      description: 获取支付通道列表
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        type: string
+      responses: {}
+      summary: 获取支付通道列表
+      tags:
+      - 用户订单
+  /shortVideos/getList:
+    post:
+      consumes:
+      - application/json
+      description: 短视频列表
+      parameters:
+      - description: 搜索条件
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.VideoSearchParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListData'
+      summary: 短视频列表
+      tags:
+      - 短视频相关
+  /shortVideos/getUrl:
+    post:
+      consumes:
+      - application/json
+      description: 获取正式视频播放地址
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        type: string
+      - description: 视频id
+        in: body
+        name: videoIds
+        required: true
+        schema:
+          $ref: '#/definitions/body.VideoIdsParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 短视频播放地址
+      tags:
+      - 短视频相关
+  /shortVideos/getUserVideoList:
+    post:
+      consumes:
+      - application/json
+      description: up主视频列表
+      parameters:
+      - description: 搜索条件
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.VideoSearchParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListData'
+      summary: up主视频列表
+      tags:
+      - 短视频相关
+  /shortVideos/getVideoLinkInfo:
+    post:
+      consumes:
+      - application/json
+      description: 短视频链接
+      parameters:
+      - description: 视频id
+        in: body
+        name: videoId
+        required: true
+        schema:
+          $ref: '#/definitions/body.VideoIdParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 短视频链接
+      tags:
+      - 短视频相关
+  /topic/getDetail:
+    post:
+      consumes:
+      - application/json
+      description: 话题-合集详情
+      parameters:
+      - description: 搜索条件
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.TopicGetDetail'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListData'
+      summary: 话题-话题详情
+      tags:
+      - 话题
+  /topic/getList:
+    post:
+      consumes:
+      - application/json
+      description: 话题-话题列表
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.TopicGetList'
+      responses: {}
+      summary: 话题-话题列表
+      tags:
+      - 话题
+  /user/bind:
+    post:
+      consumes:
+      - application/json
+      description: 绑定账号
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.BindParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 绑定账号
+      tags:
+      - 用户相关
+  /user/bindEmail:
+    post:
+      consumes:
+      - application/json
+      description: 绑定邮箱
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.EmailParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 绑定邮箱
+      tags:
+      - 用户相关
+  /user/bindInfo:
+    post:
+      consumes:
+      - application/json
+      description: 获取绑定信息
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 获取绑定信息
+      tags:
+      - 用户相关
+  /user/bindIp:
+    post:
+      consumes:
+      - application/json
+      description: 绑定代理IP
+      parameters:
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.BindIpParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 绑定代理IP
+      tags:
+      - 用户相关
+  /user/bindMobile:
+    post:
+      consumes:
+      - application/json
+      description: 绑定手机
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.MobileParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 绑定手机
+      tags:
+      - 用户相关
+  /user/buyThreshold:
+    post:
+      consumes:
+      - application/json
+      description: 用于购买聊天
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.BuyThresholdParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 购买聊天
+      tags:
+      - 用户相关
+  /user/chargeLog:
+    post:
+      consumes:
+      - application/json
+      description: 获取充值记录
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.PageTrait'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListData'
+      summary: 充值记录
+      tags:
+      - 用户相关
+  /user/getBalance:
+    post:
+      consumes:
+      - application/json
+      description: 获取用户余额信息
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.GetBalanceParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 获取用户余额信息
+      tags:
+      - 用户相关
+  /user/getBuy:
+    post:
+      consumes:
+      - application/json
+      description: 获取用户动态列表
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.GetNewsParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 获取用户动态列表
+      tags:
+      - 用户相关
+  /user/getCoinExpend:
+    post:
+      consumes:
+      - application/json
+      description: 用于获取用户钻石消费记录
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.PageTrait'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListData'
+      summary: 用户钻石消费记录
+      tags:
+      - 用户相关
+  /user/getComment:
+    post:
+      consumes:
+      - application/json
+      description: 获取用户评论
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.UserSearchParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 获取用户评论
+      tags:
+      - 用户相关
+  /user/getContributeDetail:
+    post:
+      consumes:
+      - application/json
+      description: 用于获取贡献榜详情
+      parameters:
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.ToUidParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListData'
+      summary: 贡献榜详情
+      tags:
+      - 用户相关
+  /user/getContributeList:
+    post:
+      consumes:
+      - application/json
+      description: 用于获取贡献榜
+      parameters:
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.ToUidPageParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListData'
+      summary: 贡献榜
+      tags:
+      - 用户相关
+  /user/getFansList:
+    post:
+      consumes:
+      - application/json
+      description: 获取用户粉丝
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.PageTrait'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListData'
+      summary: 获取用户粉丝
+      tags:
+      - 用户相关
+  /user/getFollowsList:
+    post:
+      consumes:
+      - application/json
+      description: 获取用户关注
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.GetFollowsListParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListData'
+      summary: 获取用户关注
+      tags:
+      - 用户相关
+  /user/getHotUpers:
+    post:
+      consumes:
+      - application/json
+      description: 用于获取热门UP
+      parameters:
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.PageTrait'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListData'
+      summary: 获取热门UP
+      tags:
+      - 用户相关
+  /user/getLike:
+    post:
+      consumes:
+      - application/json
+      description: 获取用户点赞
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.UserSearchParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 获取用户点赞
+      tags:
+      - 用户相关
+  /user/getQrCode:
+    post:
+      consumes:
+      - application/json
+      description: 获取二维码
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 获取二维码
+      tags:
+      - 用户相关
+  /user/getRecommendUser:
+    post:
+      consumes:
+      - multipart/form-data
+      description: 获取推荐用户
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.PageTrait'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 获取推荐用户
+      tags:
+      - 用户相关
+  /user/getThreshold:
+    post:
+      consumes:
+      - application/json
+      description: 用于显示与主播聊天的阈值相关信息
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.GetThresholdParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 检查聊天权限
+      tags:
+      - 用户相关
+  /user/getUserHome:
+    post:
+      consumes:
+      - application/json
+      description: 获取个人主页
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        type: string
+      - description: 目标uid
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.ToUidParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/user.UserHomeInfo'
+      summary: 获取个人主页
+      tags:
+      - 用户相关
+  /user/level:
+    post:
+      consumes:
+      - application/json
+      description: 用户等级
+      responses:
+        "0":
+          description: ""
+          schema:
+            items:
+              $ref: '#/definitions/userLevel.LevelInfo'
+            type: array
+      summary: 用户等级
+      tags:
+      - 用户相关
+  /user/levelInfo:
+    post:
+      consumes:
+      - application/json
+      description: 获取用户经验信息
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 用户经验信息
+      tags:
+      - 用户相关
+  /user/notifyCharge:
+    post:
+      consumes:
+      - application/json
+      description: 充值回调
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.NotifyChargeParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 充值回调
+      tags:
+      - 用户相关
+  /user/prepareCharge:
+    post:
+      consumes:
+      - application/json
+      description: 准备充值
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.PrepareChargeParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 准备充值
+      tags:
+      - 用户相关
+  /user/prepareVip:
+    post:
+      consumes:
+      - application/json
+      description: 准备充值VIP
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.PrepareChargeParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 准备充值VIP
+      tags:
+      - 用户相关
+  /user/searchLiver:
+    post:
+      consumes:
+      - application/json
+      description: 搜索主播
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.UserSearchParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListData'
+      summary: 搜索主播
+      tags:
+      - 用户相关
+  /user/searchUser:
+    post:
+      consumes:
+      - application/json
+      description: 搜索用户
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.UserSearchParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListData'
+      summary: 搜索用户
+      tags:
+      - 用户相关
+  /user/setAttent:
+    post:
+      consumes:
+      - application/json
+      description: 添加/取消关注
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: 目标uid
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.ToUidParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 添加/取消关注
+      tags:
+      - 用户相关
+  /user/setAuth:
+    post:
+      consumes:
+      - application/json
+      description: 认证
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.SetAuthParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 认证
+      tags:
+      - 用户相关
+  /user/setCollect:
+    post:
+      consumes:
+      - application/json
+      description: 收藏/收藏合集
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: 合集ID
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.GatherDetailParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 收藏/收藏合集
+      tags:
+      - 合集
+  /user/setThreshold:
+    post:
+      consumes:
+      - application/json
+      description: 用于设置聊天阈值
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.SetThresholdParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 设置聊天阈值
+      tags:
+      - 用户相关
+  /user/updateAvatar:
+    post:
+      consumes:
+      - multipart/form-data
+      description: 更新用户头像
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: 图片，返回图片地址
+        in: formData
+        name: file
+        required: true
+        type: file
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 更新用户头像
+      tags:
+      - 用户相关
+  /user/updateCoverImg:
+    post:
+      consumes:
+      - multipart/form-data
+      description: 更新用户背景封面
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: 图片，返回图片地址
+        in: formData
+        name: file
+        required: true
+        type: file
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 更新用户背景封面
+      tags:
+      - 用户相关
+  /user/updateFields:
+    post:
+      consumes:
+      - application/json
+      description: 修改个人信息
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.UpdateFieldsParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 修改个人信息
+      tags:
+      - 用户相关
+  /user/updatePass:
+    post:
+      consumes:
+      - application/json
+      description: 修改密码
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.UpdatePassParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 修改密码
+      tags:
+      - 用户相关
+  /userMessage/GetNotice:
+    post:
+      consumes:
+      - application/json
+      description: 消息中心-通知列表
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        type: string
+      - description: Update account
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.UserMessageParam'
+      responses: {}
+      summary: 消息中心-通知列表
+      tags:
+      - 消息中心
+  /userMessage/getList:
+    post:
+      consumes:
+      - application/json
+      description: 消息中心-列表
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        type: string
+      - description: Update account
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.UserMessageParam'
+      responses: {}
+      summary: 消息中心-列表
+      tags:
+      - 消息中心
+  /userMessage/getMessageCount:
+    post:
+      consumes:
+      - application/json
+      description: 消息中心-未读消息数量
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        type: string
+      responses: {}
+      summary: 消息中心-未读消息数量
+      tags:
+      - 消息中心
+  /userMessage/getNoticeInfo:
+    post:
+      consumes:
+      - application/json
+      description: 消息中心-系统通知已读
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        type: string
+      - description: Update account
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.ReadedNoticeParam'
+      responses: {}
+      summary: 消息中心-系统通知详情
+      tags:
+      - 消息中心
+  /video/preBuy:
+    post:
+      consumes:
+      - application/json
+      description: 视频购买前
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: 视频id
+        in: body
+        name: videoId
+        required: true
+        schema:
+          type: integer
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 视频购买前
+      tags:
+      - 视频相关
+  /videos/addCollection:
+    post:
+      consumes:
+      - application/json
+      description: 收藏视频
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.AddVideoCollectionParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 收藏视频
+      tags:
+      - 视频相关
+  /videos/addCommentsLike:
+    post:
+      consumes:
+      - application/json
+      description: 评论点赞
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.CommentLikeParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 评论点赞
+      tags:
+      - 视频相关
+  /videos/addLike:
+    post:
+      consumes:
+      - application/json
+      description: 点赞视频
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.VideoIdParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 点赞视频
+      tags:
+      - 视频相关
+  /videos/buy:
+    post:
+      consumes:
+      - application/json
+      description: 购买视频
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: 视频id
+        in: body
+        name: videoId
+        required: true
+        schema:
+          type: integer
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 购买视频
+      tags:
+      - 视频相关
+  /videos/commentInfo:
+    post:
+      consumes:
+      - application/json
+      description: 查看视频评论详情
+      parameters:
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.CommentIdParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/userVideoComment.Comment'
+      summary: 查看视频评论详情
+      tags:
+      - 视频相关
+  /videos/commentList:
+    post:
+      consumes:
+      - application/json
+      description: 获取视频评论
+      parameters:
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.VideoCommentParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            items:
+              $ref: '#/definitions/videoComment.Comment'
+            type: array
+      summary: 获取视频评论
+      tags:
+      - 视频相关
+  /videos/getDownloadUrl:
+    post:
+      consumes:
+      - application/json
+      description: 获取正式视频下载地址
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: 视频id
+        in: body
+        name: videoId
+        required: true
+        schema:
+          type: integer
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 视频下载地址
+      tags:
+      - 视频相关
+  /videos/getFind:
+    post:
+      consumes:
+      - application/json
+      description: 发现
+      parameters:
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.PageTrait'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListData'
+      summary: 发现
+      tags:
+      - 视频相关
+  /videos/getHot:
+    post:
+      consumes:
+      - application/json
+      description: 视频热榜
+      parameters:
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.PageTrait'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListData'
+      summary: 视频热榜
+      tags:
+      - 视频相关
+  /videos/getInfo:
+    post:
+      consumes:
+      - application/json
+      description: 获取视频信息
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        type: string
+      - description: 视频id
+        in: body
+        name: videoId
+        required: true
+        schema:
+          type: integer
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 视频信息
+      tags:
+      - 视频相关
+  /videos/getList:
+    post:
+      consumes:
+      - application/json
+      description: 视频搜索
+      parameters:
+      - description: 搜索条件
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.VideoSearchParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListData'
+      summary: 视频搜索
+      tags:
+      - 视频相关
+  /videos/getLists:
+    post:
+      consumes:
+      - application/json
+      description: 多视频搜索
+      parameters:
+      - description: 搜索条件
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.VideoSearchListParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListData'
+      summary: 多视频搜索
+      tags:
+      - 视频相关
+  /videos/getPreUrl:
+    post:
+      consumes:
+      - application/json
+      description: 获取试看播放地址
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: 视频id
+        in: body
+        name: videoId
+        required: true
+        schema:
+          type: integer
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 试看播放地址
+      tags:
+      - 视频相关
+  /videos/getRecommendList:
+    post:
+      consumes:
+      - application/json
+      description: 获取猜你喜欢
+      parameters:
+      - description: 搜索条件
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.VideoRecommendParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListData'
+      summary: 猜你喜欢
+      tags:
+      - 视频相关
+  /videos/getType:
+    post:
+      consumes:
+      - application/json
+      description: 获取分类
+      parameters:
+      - description: 分类
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.TypeIdStruct'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListNoCountData'
+      summary: 获取分类
+      tags:
+      - 视频相关
+  /videos/getUrl:
+    post:
+      consumes:
+      - application/json
+      description: 获取正式视频播放地址
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        type: string
+      - description: 视频id
+        in: body
+        name: videoId
+        required: true
+        schema:
+          type: integer
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 视频播放地址
+      tags:
+      - 视频相关
+  /videos/getUrlV2:
+    post:
+      consumes:
+      - application/json
+      description: 获取正式视频播放地址
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        type: string
+      - description: 视频id
+        in: body
+        name: videoId
+        required: true
+        schema:
+          type: integer
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 视频播放地址V2
+      tags:
+      - 视频相关
+  /videos/getUserVideoData:
+    post:
+      consumes:
+      - application/json
+      description: 获取视频数据统计
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/body.UserVideoData'
+      summary: 获取视频数据统计
+      tags:
+      - 视频相关
+  /videos/getUserVideoList:
+    post:
+      consumes:
+      - application/json
+      description: 获取视频管理数据
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.UserVideoListParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            items:
+              $ref: '#/definitions/userVideo.UserVideo'
+            type: array
+      summary: 获取视频管理数据
+      tags:
+      - 视频相关
+  /videos/getVideoBuy:
+    post:
+      consumes:
+      - application/json
+      description: 获取视频购买
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.PageTrait'
+      responses:
+        "0":
+          description: ""
+          schema:
+            items:
+              $ref: '#/definitions/video.VideoSimple'
+            type: array
+      summary: 获取视频购买
+      tags:
+      - 视频相关
+  /videos/getVideoCollection:
+    post:
+      consumes:
+      - application/json
+      description: 获取视频收藏
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.PageTrait'
+      responses:
+        "0":
+          description: ""
+          schema:
+            items:
+              $ref: '#/definitions/video.VideoSimple'
+            type: array
+      summary: 获取视频收藏
+      tags:
+      - 视频相关
+  /videos/getVideoLike:
+    post:
+      consumes:
+      - application/json
+      description: 获取视频点赞
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.PageTrait'
+      responses:
+        "0":
+          description: ""
+          schema:
+            items:
+              $ref: '#/definitions/video.VideoSimple'
+            type: array
+      summary: 获取视频点赞
+      tags:
+      - 视频相关
+  /videos/removeCollection:
+    post:
+      consumes:
+      - application/json
+      description: 取消收藏视频
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.VideoIdParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 取消收藏视频
+      tags:
+      - 视频相关
+  /videos/removeCommentsLike:
+    post:
+      consumes:
+      - application/json
+      description: 取消评论点赞
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.CommentLikeParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 取消评论点赞
+      tags:
+      - 视频相关
+  /videos/removeLike:
+    post:
+      consumes:
+      - application/json
+      description: 取消点赞视频
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.VideoIdParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 取消点赞视频
+      tags:
+      - 视频相关
+  /videos/reply:
+    post:
+      consumes:
+      - application/json
+      description: 添加视频评论
+      parameters:
+      - description: token
+        in: header
+        name: Auth
+        required: true
+        type: string
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.CommentReplyParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.InfoData'
+      summary: 回复
+      tags:
+      - 视频相关
+  /videos/replyList:
+    post:
+      consumes:
+      - application/json
+      description: 获取视频评论回复
+      parameters:
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.ReplyIdListParam'
+      responses:
+        "0":
+          description: ""
+          schema:
+            items:
+              $ref: '#/definitions/videoComment.Comment'
+            type: array
+      summary: 获取视频评论回复
+      tags:
+      - 视频相关
+  /vip/getIndex:
+    post:
+      consumes:
+      - application/json
+      description: 获取vip信息
+      responses:
+        "0":
+          description: ""
+          schema:
+            items:
+              $ref: '#/definitions/base.ChargeRule'
+            type: array
+      summary: vip信息
+      tags:
+      - VIP相关
+  /vip/getLiveIndex:
+    post:
+      consumes:
+      - application/json
+      description: 获取直播vip信息
+      responses:
+        "0":
+          description: ""
+          schema:
+            items:
+              $ref: '#/definitions/base.ChargeRule'
+            type: array
+      summary: 直播vip信息
+      tags:
+      - VIP相关
+  /vip/liveLog:
+    post:
+      consumes:
+      - application/json
+      description: 获取直播vip记录
+      parameters:
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.PageTrait'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListData'
+      summary: 直播vip记录
+      tags:
+      - VIP相关
+  /vip/log:
+    post:
+      consumes:
+      - application/json
+      description: 获取vip记录
+      parameters:
+      - description: '-'
+        in: body
+        name: param
+        required: true
+        schema:
+          $ref: '#/definitions/body.PageTrait'
+      responses:
+        "0":
+          description: ""
+          schema:
+            $ref: '#/definitions/success.ListData'
+      summary: vip记录
+      tags:
+      - VIP相关
+swagger: "2.0"
