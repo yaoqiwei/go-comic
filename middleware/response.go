@@ -1,6 +1,7 @@
 package middleware
 
 import (
+	"fehu/model/http_error"
 	"fehu/util/convert"
 	"fehu/util/math"
 
@@ -26,6 +27,12 @@ type Response struct {
 
 func Error(c *gin.Context, code ResponseCode, msg string) {
 	resp := &Response{ErrorCode: code, ErrorMsg: msg}
+	SerializeJSON(c, resp, 200)
+	c.Abort()
+}
+
+func Errors(c *gin.Context, params http_error.HttpError) {
+	resp := &Response{ErrorCode: ResponseCode(params.ErrorCode), ErrorMsg: params.ErrorMsg}
 	SerializeJSON(c, resp, 200)
 	c.Abort()
 }

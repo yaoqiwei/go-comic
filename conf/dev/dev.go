@@ -33,22 +33,40 @@ var Base BaseConf = BaseConf{
 	},
 
 	Mysql: MysqlMapConfig{
+		//List: map[string]*MysqlConf{
+		//	"default": {
+		//		DriverName:      "mysql",
+		//		DataSourceName:  "root:admin0805@tcp(192.168.24.214:3306)/yl_comic?charset=utf8mb4&parseTime=true&loc=Asia%2FChongqing",
+		//		MaxOpenConn:     50,
+		//		MaxIdleConn:     20,
+		//		MaxConnLifeTime: 100,
+		//		Prefix:          "comic_",
+		//	},
+		//	"read": {
+		//		DriverName:      "mysql",
+		//		DataSourceName:  "root:admin0805@tcp(192.168.24.214:3306)/yl_comic?charset=utf8mb4&parseTime=true&loc=Asia%2FChongqing",
+		//		MaxOpenConn:     50,
+		//		MaxIdleConn:     20,
+		//		MaxConnLifeTime: 100,
+		//		Prefix:          "comic_",
+		//	},
+		//},
 		List: map[string]*MysqlConf{
 			"default": {
 				DriverName:      "mysql",
-				DataSourceName:  "root:admin0805@tcp(192.168.24.214:3306)/yl_comic?charset=utf8mb4&parseTime=true&loc=Asia%2FChongqing",
+				DataSourceName:  "root:123456@tcp(127.0.0.1:3306)/thinkcmf?charset=utf8mb4&parseTime=true&loc=Asia%2FChongqing",
 				MaxOpenConn:     50,
 				MaxIdleConn:     20,
 				MaxConnLifeTime: 100,
-				Prefix:          "comic_",
+				Prefix:          "cmf_",
 			},
 			"read": {
 				DriverName:      "mysql",
-				DataSourceName:  "root:admin0805@tcp(192.168.24.214:3306)/yl_comic?charset=utf8mb4&parseTime=true&loc=Asia%2FChongqing",
+				DataSourceName:  "root:123456@tcp(127.0.0.1:3306)/thinkcmf?charset=utf8mb4&parseTime=true&loc=Asia%2FChongqing",
 				MaxOpenConn:     50,
 				MaxIdleConn:     20,
 				MaxConnLifeTime: 100,
-				Prefix:          "comic_",
+				Prefix:          "cmf_",
 			},
 		},
 		Split: 4,

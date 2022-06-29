@@ -7,12 +7,14 @@ import (
 	"time"
 )
 
+// UserTokenRedis 用户token结构体
 type UserTokenRedis struct {
-	Uid        int64  `db:"uid" json:"uid"`
-	Token      string `db:"token" json:"token"`
-	Expiretime int64  `db:"expiretime" json:"expiretime"`
+	Uid        int64  `db:"uid" json:"uid"`               //用户id
+	Token      string `db:"token" json:"token"`           //用户token
+	Expiretime int64  `db:"expiretime" json:"expiretime"` //失效时间
 }
 
+// UpdateToken 更新token
 func UpdateToken(token *jwt.Token, ip string) {
 
 	expiretime := token.Expire.Unix() + 60*60*24*300
@@ -30,6 +32,7 @@ func UpdateToken(token *jwt.Token, ip string) {
 	redis_lib.Set(tokenKey, tokenRedisInfo, 60*60*24*300, "")
 }
 
+// GetTokenMysql 从数据库中获取token
 func GetTokenMysql(uid int64) *UserTokenRedis {
 	userTokenRedis := &UserTokenRedis{}
 	err := mysql_lib.DB("users_info").Suffix(uid).Query("WHERE uid=?", uid).Dest(userTokenRedis).FetchOne()

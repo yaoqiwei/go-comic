@@ -29,6 +29,6 @@ func (*OrderController) getList(c *gin.Context) {
 	var params body.Order
 	request.Bind(c, &params)
 	list := order.GetByUid(params.UserId)
-	res := order.GetByOrderId(params.OrderId)
+	res := order.GetByOrderId(params.Id)
 	middleware.Success(c, map_builder.BuilderMap("list", list, "res", res))
 }

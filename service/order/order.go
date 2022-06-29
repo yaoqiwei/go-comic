@@ -17,6 +17,6 @@ func GetByUid(uid int64) []body.Order {
 }
 func GetByOrderId(orderId int64) []body.Order {
 	order := make([]body.Order, 0)
-	lib.Db.Where("order_id = ?", orderId).Find(&order)
+	lib.Db.Where("id = ?", orderId).Find(&order)
 	return order
 }

@@ -1,56 +1,170 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="ALL" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="3576e20e-d8f0-426f-8036-909c8ac47de4" name="Changes" comment="Changes" />
+    <list default="true" id="5adfdde4-9670-4240-bc47-47134f72ad88" name="默认变更列表" comment="">
+      <change afterPath="$PROJECT_DIR$/service/base/base.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/base/config.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/base/jackpot.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/base/luck.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/user/check.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/user/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/lib/gorm.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/lib/gorm.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/lib/lib.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/lib/lib.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/lib/mysql.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/lib/mysql.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/lib/mysql/chain.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/lib/mysql/chain.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/lib/mysql/field/field.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/lib/mysql/field/field.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/lib/mysql/field/mutiField.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/lib/mysql/field/mutiField.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/lib/mysql/field/rawField.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/lib/mysql/field/rawField.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/lib/mysql/mix/mix.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/lib/mysql/mix/mix.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/lib/mysql/mix/raw.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/lib/mysql/mix/raw.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/lib/mysql/mx/field.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/lib/mysql/mx/field.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/lib/mysql/mx/joinType.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/lib/mysql/mx/joinType.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/lib/mysql/mx/mix.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/lib/mysql/mx/mix.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/lib/mysql/mx/mx.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/lib/mysql/mx/mx.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/lib/mysql/mx/table.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/lib/mysql/mx/table.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/lib/mysql/mx/with.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/lib/mysql/mx/with.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/lib/mysql/mysql.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/lib/mysql/mysql.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/lib/mysql/orm.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/lib/mysql/orm.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/lib/mysql/orm_result.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/lib/mysql/orm_result.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/lib/mysql/table/join.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/lib/mysql/table/join.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/lib/mysql/table/table.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/lib/mysql/table/table.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/lib/mysql/transform.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/lib/mysql/transform.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/lib/mysql/util.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/lib/mysql/util.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/lib/mysql_lib/mysql.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/lib/mysql_lib/mysql.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/lib/redis.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/lib/redis.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/lib/redis_lib/helper.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/lib/redis_lib/helper.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/lib/redis_lib/key.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/lib/redis_lib/key.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/lib/redis_lib/redis.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/lib/redis_lib/redis.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/lib/redisx/cluster.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/lib/redisx/cluster.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/lib/redisx/default.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/lib/redisx/default.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/lib/redisx/pool.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/lib/redisx/pool.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/lib/redisx/sentinel.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/lib/redisx/sentinel.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/base.go" beforeDir="false" afterPath="$PROJECT_DIR$/conf/base.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/dev/dev.go" beforeDir="false" afterPath="$PROJECT_DIR$/conf/dev/dev.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/prod/prod.go" beforeDir="false" afterPath="$PROJECT_DIR$/conf/prod/prod.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/structs/structs.go" beforeDir="false" afterPath="$PROJECT_DIR$/conf/structs/structs.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/test/test.go" beforeDir="false" afterPath="$PROJECT_DIR$/conf/test/test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/constant/constants.go" beforeDir="false" afterPath="$PROJECT_DIR$/constant/constants.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/order.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/order.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/userAuth.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/userAuth.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/docs.go" beforeDir="false" afterPath="$PROJECT_DIR$/docs/docs.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/header.go" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/header.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/jwt_auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/jwt_auth.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/log.go" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/log.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/recovery.go" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/recovery.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/response.go" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/response.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/body/Order.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/body/Order.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/body/User.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/body/User.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/bytebool.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/bytebool.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/form/User.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/form/User.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/http_error/Actor.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/http_error/Actor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/http_error/Album.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/http_error/Album.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/http_error/Car.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/http_error/Car.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/http_error/Card.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/http_error/Card.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/http_error/Chat.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/http_error/Chat.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/http_error/Gather.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/http_error/Gather.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/http_error/Guard.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/http_error/Guard.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/http_error/Home.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/http_error/Home.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/http_error/Http.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/http_error/Http.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/http_error/Live.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/http_error/Live.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/http_error/News.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/http_error/News.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/http_error/User.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/http_error/User.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/http_error/Video.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/http_error/Video.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/param/base_param.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/param/base_param.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/param/login_param.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/param/login_param.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/success/Http.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/success/Http.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/time.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/time.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysql_change_log.sql" beforeDir="false" afterPath="$PROJECT_DIR$/mysql_change_log.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/router/httpserver.go" beforeDir="false" afterPath="$PROJECT_DIR$/router/httpserver.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/router/route.go" beforeDir="false" afterPath="$PROJECT_DIR$/router/route.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/order/order.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/order/order.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/user/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/user/login.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/user/userToken.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/user/userToken.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp/build-errors.log" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/build-errors.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/cache/cache.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/cache/cache.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/cache/cache_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/cache/cache_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/convert/convert.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/convert/convert.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/convert/convert_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/convert/convert_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/cryp/aes.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/cryp/aes.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/cryp/ase_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/cryp/ase_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/cryp/base64.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/cryp/base64.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/cryp/hmac.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/cryp/hmac.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/cryp/hmac_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/cryp/hmac_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/cryp/md5.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/cryp/md5.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/cryp/myrsa.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/cryp/myrsa.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/cryp/ras_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/cryp/ras_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/cryp/rsa.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/cryp/rsa.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/cryp/rsa_ext.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/cryp/rsa_ext.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/cryp/sha256.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/cryp/sha256.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/cryp/uuid.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/cryp/uuid.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/json/json.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/json/json.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/jwt/jwt.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/jwt/jwt.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/jwt/jwt_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/jwt/jwt_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/map_builder/map_builder.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/map_builder/map_builder.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/math/math.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/math/math.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/request/request.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/request/request.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/response/response.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/response/response.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/rsaaaa/gorsa.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/rsaaaa/gorsa.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/rsaaaa/gorsaSign.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/rsaaaa/gorsaSign.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/rsaaaa/rsa.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/rsaaaa/rsa.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/rsaaaa/rsa_ext.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/rsaaaa/rsa_ext.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/stringify/stringify.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/stringify/stringify.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/time/time.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/time/time.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/time/time_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/time/time_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/tool/tool.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/tool/tool.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/validator/validator.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/validator/validator.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="GOROOT" url="file:///usr/local/go" />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" url="file://C:/Program Files (x86)/Go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
-  <component name="ProjectId" id="2BA2wkcwQBHxaXkYFnvj6uS7qo9" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
   </component>
+  <component name="ProjectId" id="2BEFHSDvuW8LtZJ3dqbTpucyzg1" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.format.on.save.advertiser.fired": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "configurable..is.expanded": "false",
-    "configurable.GoLibrariesConfigurable.is.expanded": "true",
-    "go.import.settings.migrated": "true",
-    "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "/Users/yaoqiwei/Documents/xm/go-comic",
-    "settings.editor.selected.configurable": "vcs.Git"
-  },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
-    ]
-  }
-}]]></component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="PropertiesComponent">
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.sdk.automatically.set" value="true" />
+    <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../goapi" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\go-code\go-comic\service\base" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
@@ -65,17 +179,7 @@
       </map>
     </option>
   </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes" />
-  </component>
   <component name="VgoProject">
-    <environment>
-      <map>
-        <entry key="GOPROXY" value="https://goproxy.cn,direct" />
-      </map>
-    </environment>
-    <settings-migrated>true</settings-migrated>
+    <integration-enabled>true</integration-enabled>
   </component>
 </project>
