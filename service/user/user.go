@@ -34,12 +34,13 @@ type Users struct {
 
 // UsersInfo 对应数据表user_info字段
 type UsersInfo struct {
-	Uid           int64     //用户id
+	UserId        int64     //用户id
 	LastLoginIp   string    //最后登录ip
 	LastLoginTime time.Time //最后登录时间
 	Score         int       //用户积分
 	Coin          int64     //金币
 	Token         string    //授权token
+	ExpireTime    int64     //token到期时间
 }
 
 // GetLoginNameByHardwareId 根据硬件id查询对应用户名
@@ -67,7 +68,8 @@ func AddUser(userLogin, password, source, email, mobile, ip, hardwareId string) 
 		Signature:    "这家伙很懒，什么都没留下",
 		Avatar:       randAvatar,
 		AvatarThumb:  randAvatar,
-		UserType:     2,
+		UserType:     0,
+		UserStatus:   1,
 		Source:       source,
 		PrivateKey:   privateKey,
 		HardwareId:   hardwareId,
@@ -78,7 +80,7 @@ func AddUser(userLogin, password, source, email, mobile, ip, hardwareId string) 
 		panic(http_error.RegisterFail)
 	}
 	usersInfo := UsersInfo{
-		Uid:         uid,
+		UserId:      uid,
 		LastLoginIp: ip,
 	}
 	gorm.Db.Create(&usersInfo)

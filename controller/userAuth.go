@@ -14,6 +14,7 @@ import (
 	"fehu/util/request"
 	"fehu/util/tool"
 	"fehu/util/validator"
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"strconv"
 	"time"
@@ -25,6 +26,11 @@ type UserAuthController struct {
 func UserAuthRegister(router *gin.RouterGroup, needLoginedRouter *gin.RouterGroup) {
 	c := UserAuthController{}
 	router.POST("/login/userLogin", c.login)
+	router.POST("/login/register", c.register)
+	router.POST("/login/getCode", c.getCode)
+	router.POST("/login/userFindPass", c.userFindPass)
+	needLoginedRouter.POST("/user/bindEmail", c.bindEmail)
+	needLoginedRouter.POST("/user/bindMobile", c.bindMobile)
 }
 
 // @Summary 登录
@@ -32,7 +38,7 @@ func UserAuthRegister(router *gin.RouterGroup, needLoginedRouter *gin.RouterGrou
 // @Tags 登录相关
 // @Accept json
 // @Param param body body.UserLoginParam true "账号和密码"
-// @Success 0 {object} body.UserLoginReturnFull
+// @Success 0 {object} body.UserLoginReturn
 // @Failure 1002 {object} http_error.HttpError
 // @Failure 1003 {object} http_error.HttpError
 // @Failure 1004 {object} http_error.HttpError
@@ -46,7 +52,7 @@ func (*UserAuthController) login(c *gin.Context) {
 	if userInfo == nil {
 		panic(http_error.AccountNotExist)
 	}
-	pass := jwt.SetPass(params.UserPass, userInfo.UserPass)
+	pass := jwt.SetPass(params.UserPass, userInfo.PrivateKey)
 	// 密码不匹配
 	if userInfo.UserPass != pass {
 		panic(http_error.AccountOrPasswordError)
@@ -58,7 +64,7 @@ func (*UserAuthController) login(c *gin.Context) {
 	var encodeToken string
 	token := user.GetTokenMysql(userInfo.Id)
 	if token != nil {
-		encodeToken = base64.StdEncoding.EncodeToString([]byte(token.Token + "|" + strconv.FormatInt(token.Uid, 10)))
+		encodeToken = base64.StdEncoding.EncodeToString([]byte(token.Token + "|" + strconv.FormatInt(token.UserId, 10)))
 	}
 	if encodeToken == "" {
 		// 生成token并更新
@@ -74,15 +80,15 @@ func (*UserAuthController) login(c *gin.Context) {
 // @Tags 登录相关
 // @Accept json
 // @Param registerParam body body.UserRegisterParam true "账号和密码"
-// @Success 0 {object} body.UserRegisterReturnFull
+// @Success 0 {object} success.InfoData
 // @Failure 1005 {object} http_error.HttpError
 // @Failure 1006 {object} http_error.HttpError
 // @Failure 1007 {object} http_error.HttpError
 // @Failure 1008 {object} http_error.HttpError
 // @Failure 1010 {object} http_error.HttpError
 // @Failure 1012 {object} http_error.HttpError
-// @Router /login/userReg [post]
-func (*UserController) register(c *gin.Context) {
+// @Router /login/register [post]
+func (*UserAuthController) register(c *gin.Context) {
 	var param body.UserRegisterParam
 	request.Bind(c, &param)
 	// 检查密码格式
@@ -113,7 +119,7 @@ func (*UserController) register(c *gin.Context) {
 // @Tags 登录相关
 // @Accept json
 // @Param codeParam body body.UserCodeParam true "账号和类型，type:find找回密码，reg注册"
-// @Success 0 {object} body.UserCodeReturnFull
+// @Success 0 {object} success.InfoData
 // @Failure 1010 {object} http_error.HttpError
 // @Failure 1011 {object} http_error.HttpError
 // @Failure 1012 {object} http_error.HttpError
@@ -163,7 +169,7 @@ func (*UserAuthController) getCode(c *gin.Context) {
 // @Tags 登录相关
 // @Accept json
 // @Param param body body.UserFindPassParam true "账号和密码和验证码"
-// @Success 0 {object} body.UserLoginReturnFull
+// @Success 0 {object} body.UserLoginReturn
 // @Failure 1002 {object} http_error.HttpError
 // @Failure 1003 {object} http_error.HttpError
 // @Failure 1004 {object} http_error.HttpError
@@ -215,6 +221,7 @@ func (*UserAuthController) bindEmail(c *gin.Context) {
 	request.Bind(c, &params)
 	email := params.Email
 	uid := jwt.GetUid(c, true)
+	fmt.Println("uid", uid)
 	userInfo := user.GetUserInfo(uid)
 	// 检查是否已经绑定邮箱
 	if userInfo.CheckEmail != 0 {

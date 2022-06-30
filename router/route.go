@@ -93,7 +93,7 @@ func InitRouter(middlewares ...gin.HandlerFunc) *gin.Engine {
 	r := router.Group("")
 	r2 := router.Group("", middleware.JwtAuthMiddleware())
 	{
-		controller.OrderRegister(r, r2)
+		controller.UserAuthRegister(r, r2)
 	}
 
 	return router

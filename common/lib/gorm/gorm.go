@@ -2,6 +2,7 @@ package gorm
 
 import (
 	"errors"
+	"fehu/common/lib/gorm/shardingConfigBuilder"
 	"fehu/conf"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
@@ -13,6 +14,7 @@ import (
 var GormPool map[string]*gorm.DB
 var Db *gorm.DB
 
+// InitGormPool 配置gorm连接
 func InitGormPool() error {
 	GormPool = map[string]*gorm.DB{}
 	for confName, DbConf := range conf.Mysql.List {
@@ -26,11 +28,11 @@ func InitGormPool() error {
 			return err
 		}
 		//使用分表插件
-		gormDB.Use(sharding.Register(sharding.Config{
-			ShardingKey:         "user_id",
-			NumberOfShards:      uint(conf.Mysql.Split),
-			PrimaryKeyGenerator: sharding.PKSnowflake,
-		}, "cmf_order"))
+		gormDB.Use(sharding.Register(
+			shardingConfigBuilder.GetShardingConfig("user_id"),
+			"comic_order",
+			"comic_users_info",
+		))
 		sqlDB, err := gormDB.DB()
 		if err != nil {
 			return err
@@ -50,6 +52,7 @@ func InitGormPool() error {
 	return nil
 }
 
+// GetGormPool 获取gorm连接池
 func GetGormPool(name string) (*gorm.DB, error) {
 	if dbPool, ok := GormPool[name]; ok {
 		return dbPool, nil
