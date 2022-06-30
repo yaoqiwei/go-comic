@@ -2,7 +2,6 @@ package conf
 
 import (
 	"fehu/conf/dev"
-	"fehu/conf/prod"
 	structs "fehu/conf/structs"
 	"fehu/conf/test"
 	"io/ioutil"
@@ -50,7 +49,7 @@ func init() {
 	case "test":
 		Base = test.Base
 	default:
-		Base = prod.Base
+		Base = dev.Base
 	}
 
 	Http = Base.Http

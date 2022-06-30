@@ -1,6 +1,7 @@
 package lib
 
 import (
+	"fehu/common/lib/gorm"
 	"fehu/conf"
 	"os"
 	"time"
@@ -29,10 +30,10 @@ func Init() error {
 		logrus.Errorf("InitRedisConf:" + err.Error())
 	}
 
-	if err := InitDBPool(); err != nil {
+	/*	if err := InitDBPool(); err != nil {
 		logrus.Errorf("InitDBPool:" + err.Error())
-	}
-	if err := InitGormPool(); err != nil {
+	}*/
+	if err := gorm.InitGormPool(); err != nil {
 		logrus.Errorf("InitGromPool:" + err.Error())
 	}
 

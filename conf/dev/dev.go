@@ -54,7 +54,7 @@ var Base BaseConf = BaseConf{
 		List: map[string]*MysqlConf{
 			"default": {
 				DriverName:      "mysql",
-				DataSourceName:  "root:123456@tcp(127.0.0.1:3306)/yl_comic?charset=utf8mb4&parseTime=true&loc=Asia%2FChongqing",
+				DataSourceName:  "root:960216@tcp(101.43.63.154:3306)/yl_comic?charset=utf8mb4&parseTime=true&loc=Asia%2FChongqing",
 				MaxOpenConn:     50,
 				MaxIdleConn:     20,
 				MaxConnLifeTime: 100,
@@ -62,7 +62,7 @@ var Base BaseConf = BaseConf{
 			},
 			"read": {
 				DriverName:      "mysql",
-				DataSourceName:  "root:123456@tcp(127.0.0.1:3306)/yl_comic?charset=utf8mb4&parseTime=true&loc=Asia%2FChongqing",
+				DataSourceName:  "root:960216@tcp(101.43.63.154:3306)/yl_comic?charset=utf8mb4&parseTime=true&loc=Asia%2FChongqing",
 				MaxOpenConn:     50,
 				MaxIdleConn:     20,
 				MaxConnLifeTime: 100,

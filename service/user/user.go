@@ -1,7 +1,7 @@
 package user
 
 import (
-	"fehu/common/lib"
+	"fehu/common/lib/gorm"
 	"fehu/common/lib/redis_lib"
 	"fehu/model/http_error"
 	"fehu/service/base"
@@ -45,7 +45,7 @@ type UsersInfo struct {
 // GetLoginNameByHardwareId 根据硬件id查询对应用户名
 func GetLoginNameByHardwareId(hardwareId string) string {
 	user := new(Users)
-	lib.Db.Select("user_login").Where("hardware_id=?", hardwareId).First(user)
+	gorm.Db.Select("user_login").Where("hardware_id=?", hardwareId).First(user)
 	return user.UserLogin
 }
 
@@ -72,7 +72,7 @@ func AddUser(userLogin, password, source, email, mobile, ip, hardwareId string) 
 		PrivateKey:   privateKey,
 		HardwareId:   hardwareId,
 	}
-	err := lib.Db.Create(&users).Error
+	err := gorm.Db.Create(&users).Error
 	uid := users.Id
 	if err != nil {
 		panic(http_error.RegisterFail)
@@ -81,7 +81,7 @@ func AddUser(userLogin, password, source, email, mobile, ip, hardwareId string) 
 		Uid:         uid,
 		LastLoginIp: ip,
 	}
-	lib.Db.Create(&usersInfo)
+	gorm.Db.Create(&usersInfo)
 	return users.Id
 }
 
@@ -109,17 +109,17 @@ func UpdateUserPass(uid int64, password, privateKey string) {
 		UserPass:   password,
 		PrivateKey: privateKey,
 	}
-	lib.Db.Where("id = ?", uid).Updates(users)
+	gorm.Db.Where("id = ?", uid).Updates(users)
 }
 
 // GetUserInfo 获取用户信息
 func GetUserInfo(userId int64) Users {
 	user := Users{Id: userId}
-	lib.Db.First(&user)
+	gorm.Db.First(&user)
 	return user
 }
 
 // UpdateUser 根据id修改用户信息
 func UpdateUser(user Users) {
-	lib.Db.Where("id = ?", user.Id).Updates(user)
+	gorm.Db.Where("id = ?", user.Id).Updates(user)
 }

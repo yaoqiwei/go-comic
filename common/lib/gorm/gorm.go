@@ -1,4 +1,4 @@
-package lib
+package gorm
 
 import (
 	"errors"
@@ -25,14 +25,21 @@ func InitGormPool() error {
 		if err != nil {
 			return err
 		}
+		//使用分表插件
 		gormDB.Use(sharding.Register(sharding.Config{
 			ShardingKey:         "user_id",
 			NumberOfShards:      uint(conf.Mysql.Split),
 			PrimaryKeyGenerator: sharding.PKSnowflake,
 		}, "cmf_order"))
-		sqlDB, _ := gormDB.DB()
+		sqlDB, err := gormDB.DB()
+		if err != nil {
+			return err
+		}
+		//最大闲置连接数
 		sqlDB.SetMaxIdleConns(DbConf.MaxIdleConn)
+		//最大的连接数，默认值为0表示不限制
 		sqlDB.SetMaxOpenConns(DbConf.MaxOpenConn)
+		//最大连接超时
 		sqlDB.SetConnMaxLifetime(time.Duration(DbConf.MaxConnLifeTime) * time.Second)
 		GormPool[confName] = gormDB
 	}
