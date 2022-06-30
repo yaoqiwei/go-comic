@@ -2,18 +2,27 @@ package gorm
 
 import (
 	"errors"
+	"fehu/common/lib/gorm/shardingConfigBuilder"
 	"fehu/conf"
+	snowflake2 "fehu/util/snowflake"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"gorm.io/gorm/schema"
 	"gorm.io/sharding"
+	"sync"
 	"time"
 )
 
 var GormPool map[string]*gorm.DB
 var Db *gorm.DB
+var Snowflake snowflake2.Snowflake
 
 func InitGormPool() error {
+	Snowflake = snowflake2.Snowflake{
+		Mutex:        sync.Mutex{},
+		WorkerId:     0,
+		DatacenterId: 0,
+	}
 	GormPool = map[string]*gorm.DB{}
 	for confName, DbConf := range conf.Mysql.List {
 		gormDB, err := gorm.Open(mysql.Open(DbConf.DataSourceName), &gorm.Config{
@@ -26,11 +35,7 @@ func InitGormPool() error {
 			return err
 		}
 		//使用分表插件
-		gormDB.Use(sharding.Register(sharding.Config{
-			ShardingKey:         "user_id",
-			NumberOfShards:      uint(conf.Mysql.Split),
-			PrimaryKeyGenerator: sharding.PKSnowflake,
-		}, "cmf_order"))
+		gormDB.Use(sharding.Register(shardingConfigBuilder.GetShardingConfig("user_id"), "comic_order"))
 		sqlDB, err := gormDB.DB()
 		if err != nil {
 			return err
