@@ -4,7 +4,7 @@ import (
 	"errors"
 	"fehu/common/lib/gorm/shardingConfigBuilder"
 	"fehu/conf"
-	snowflake2 "fehu/util/snowflake"
+	"fehu/util/snowflake"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"gorm.io/gorm/schema"
@@ -15,10 +15,10 @@ import (
 
 var GormPool map[string]*gorm.DB
 var Db *gorm.DB
-var Snowflake snowflake2.Snowflake
+var Snowflake snowflake.Snowflake
 
 func InitGormPool() error {
-	Snowflake = snowflake2.Snowflake{
+	Snowflake = snowflake.Snowflake{
 		Mutex:        sync.Mutex{},
 		WorkerId:     0,
 		DatacenterId: 0,
