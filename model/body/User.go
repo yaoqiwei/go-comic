@@ -30,18 +30,18 @@ type UserCodeParam struct {
 // UserFindPassParam 用户找回密码传入参数
 type UserFindPassParam struct {
 	UserLogin string `json:"user_login" form:"user_login" binding:"required"` //用户名
-	Password  string `json:"user_pass" form:"user_pass" binding:"required"`   //用户密码
+	Password  string `json:"user_pass" form:"user_pass" binding:"required"`   //用户新密码
 	Code      string `json:"code" form:"code" binding:"required"`             //验证码
 }
 
 // EmailParam 绑定邮箱传入参数
 type EmailParam struct {
-	Email string `json:"email" form:"email"`                  //邮箱号
+	Email string `json:"email" form:"email"`                  //绑定的邮箱号
 	Code  string `json:"code" form:"code" binding:"required"` //验证码
 }
 
 // MobileParam 绑定手机传入参数
 type MobileParam struct {
-	Mobile string `json:"mobile" form:"mobile"`                //手机号
+	Mobile string `json:"mobile" form:"mobile"`                //绑定的手机号
 	Code   string `json:"code" form:"code" binding:"required"` //验证码
 }
