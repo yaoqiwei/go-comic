@@ -5,6 +5,7 @@ import (
 	"fehu/common/lib/gorm/shardingConfigBuilder"
 	"fehu/conf"
 	"fehu/util/snowflake"
+	"fehu/util/stringify"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"gorm.io/gorm/schema"
@@ -64,4 +65,12 @@ func GetGormPool(name string) (*gorm.DB, error) {
 		return dbPool, nil
 	}
 	return nil, errors.New("get gormPool error")
+}
+
+func ShardingTable(tableName string, id int64) *gorm.DB {
+	if conf.Mysql.Split == 0 {
+		return Db
+	}
+	i := "_" + stringify.ToString(Snowflake.GetRandomNumber(id)%int64(conf.Mysql.Split))
+	return Db.Table(tableName + i)
 }

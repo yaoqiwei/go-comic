@@ -97,11 +97,3 @@ func (s *Snowflake) GetRandomNumber(id int64) int64 {
 	id = id & randomNumberMax
 	return id
 }
-
-/*func main() {
-	for i := 0; i < 100; i++ {
-		rand.Seed(time.Now().UnixNano())
-		random := int64(rand.Intn(16))
-		fmt.Println(random)
-	}
-}*/

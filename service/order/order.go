@@ -6,6 +6,7 @@ import (
 )
 
 func Add(p body.Order) error {
+	p.Id = gorm.Snowflake.GetRecombinationId(p.UserId)
 	err := gorm.Db.Create(&p).Error
 	return err
 }
