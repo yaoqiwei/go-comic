@@ -8,9 +8,8 @@ import (
 
 // CheckUserExist 根据用户名判断用户是否存在
 func CheckUserExist(userLogin string) bool {
-	users := Users{}
 	return gorm.Db.Where("user_login=? OR mobile=? OR user_email=?",
-		userLogin, userLogin, userLogin).Find(&users).RowsAffected > 0
+		userLogin, userLogin, userLogin).First(&Users{}).RowsAffected > 0
 }
 
 // CheckToken 校验token

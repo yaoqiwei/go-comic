@@ -12,7 +12,7 @@ import (
 	"time"
 )
 
-// Users 对应数据表users字段
+// Users 对应数据表users用户表
 type Users struct {
 	Id           int64
 	UserLogin    string //用户名
@@ -32,7 +32,7 @@ type Users struct {
 	UserStatus   byte   //用户状态 0：禁用； 1：正常 ；2：未验证
 }
 
-// UsersInfo 对应数据表user_info字段
+// UsersInfo 对应数据表user_info用户信息表
 type UsersInfo struct {
 	UserId        int64     //用户id
 	LastLoginIp   string    //最后登录ip
