@@ -14,7 +14,6 @@ import (
 	"fehu/util/request"
 	"fehu/util/tool"
 	"fehu/util/validator"
-	"fmt"
 	"github.com/gin-gonic/gin"
 	"strconv"
 	"time"
@@ -221,7 +220,6 @@ func (*UserAuthController) bindEmail(c *gin.Context) {
 	request.Bind(c, &params)
 	email := params.Email
 	uid := jwt.GetUid(c, true)
-	fmt.Println("uid", uid)
 	userInfo := user.GetUserInfo(uid)
 	// 检查是否已经绑定邮箱
 	if userInfo.CheckEmail != 0 {
