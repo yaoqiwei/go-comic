@@ -140,7 +140,7 @@ func GetConfigPri() ConfigPri {
 	}
 
 	var configPriMysql ConfigMysql
-	mysql_lib.FetchOne(&configPriMysql, "SELECT option_value FROM cmf_options WHERE option_name='configpri'")
+	mysql_lib.FetchOne(&configPriMysql, "SELECT option_value FROM comic_options WHERE option_name='configpri'")
 	redis_lib.Set(redis_lib.GetRedisKey("CONFIG_PRI"), configPriMysql.OptionValue, 60*60*24*300, "")
 
 	json.Unmarshal([]byte(configPriMysql.OptionValue), &configpri)

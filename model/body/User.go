@@ -4,7 +4,6 @@ package body
 type UserLoginParam struct {
 	UserLogin string `json:"userLogin" form:"userLogin" binding:"required"` //用户名
 	UserPass  string `json:"userPass" form:"userPass" binding:"required"`   //用户密码
-	IsAgent   byte   `json:"isAgent" form:"isAgent"`
 }
 
 // UserLoginReturn 用户登录返回参数
@@ -16,15 +15,15 @@ type UserLoginReturn struct {
 // UserRegisterParam 用户注册信息
 type UserRegisterParam struct {
 	UserLogin    string `json:"user_login" form:"user_login"`                  // 游客类型不用传此参数
-	Password     string `json:"user_pass" form:"user_pass" binding:"required"` //用户密码
-	Source       string `json:"source" form:"source"`                          //注册来源
+	Password     string `json:"user_pass" form:"user_pass" binding:"required"` // 用户密码
+	Source       string `json:"source" form:"source"`                          // 注册来源
 	HardwareId   string `json:"hardwareId" form:"hardwareId"`                  // 硬件ID
 	RegisterType byte   `json:"registerType" form:"registerType"`              // 1游客，默认0普通注册
 }
 
 // UserCodeParam 获取验证码传入参数
 type UserCodeParam struct {
-	UserLogin string `json:"userLogin" form:"userLogin" binding:"required"` //用户名
+	UserLogin string `json:"userLogin" form:"userLogin" binding:"required"` // 用户名
 	Type      string `json:"type" form:"type"`                              // 找回密码find,注册reg,绑定bind
 }
 

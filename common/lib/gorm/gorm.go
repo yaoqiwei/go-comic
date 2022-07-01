@@ -35,7 +35,11 @@ func InitGormPool() error {
 			return err
 		}
 		//使用分表插件
-		gormDB.Use(sharding.Register(shardingConfigBuilder.GetShardingConfig("user_id"), "comic_order"))
+		gormDB.Use(sharding.Register(shardingConfigBuilder.
+			GetShardingConfig("user_id"),
+			"comic_order",
+			"comic_users_info",
+		))
 		sqlDB, err := gormDB.DB()
 		if err != nil {
 			return err
